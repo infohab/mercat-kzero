@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'lib-mercat-kzero-lib',
@@ -7,14 +7,6 @@ import { Component, OnInit } from '@angular/core';
       mercat-kzero-lib works!
     </p>
   `,
-  styles: [
-  ]
+  styles: [],
 })
-export class MercatKzeroLibComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class MercatKzeroLibComponent {}
