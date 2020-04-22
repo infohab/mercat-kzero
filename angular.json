@@ -24,7 +24,10 @@
             "tsConfig": "projects/mercat-kzero-web/tsconfig.app.json",
             "aot": true,
             "assets": ["projects/mercat-kzero-web/src/favicon.ico", "projects/mercat-kzero-web/src/assets"],
-            "styles": ["projects/mercat-kzero-web/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/mercat-kzero-web/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -83,7 +86,10 @@
             "tsConfig": "projects/mercat-kzero-web/tsconfig.spec.json",
             "karmaConfig": "projects/mercat-kzero-web/karma.conf.js",
             "assets": ["projects/mercat-kzero-web/src/favicon.ico", "projects/mercat-kzero-web/src/assets"],
-            "styles": ["projects/mercat-kzero-web/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/mercat-kzero-web/src/styles.scss"
+            ],
             "scripts": []
           }
         },
