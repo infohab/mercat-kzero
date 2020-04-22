@@ -23,7 +23,11 @@
             "polyfills": "projects/mercat-kzero-web/src/polyfills.ts",
             "tsConfig": "projects/mercat-kzero-web/tsconfig.app.json",
             "aot": true,
-            "assets": ["projects/mercat-kzero-web/src/favicon.ico", "projects/mercat-kzero-web/src/assets"],
+            "assets": [
+              "projects/mercat-kzero-web/src/favicon.ico",
+              "projects/mercat-kzero-web/src/assets",
+              "projects/mercat-kzero-web/src/manifest.webmanifest"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/mercat-kzero-web/src/styles.scss"
@@ -57,7 +61,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "projects/mercat-kzero-web/ngsw-config.json"
             }
           }
         },
@@ -85,7 +91,11 @@
             "polyfills": "projects/mercat-kzero-web/src/polyfills.ts",
             "tsConfig": "projects/mercat-kzero-web/tsconfig.spec.json",
             "karmaConfig": "projects/mercat-kzero-web/karma.conf.js",
-            "assets": ["projects/mercat-kzero-web/src/favicon.ico", "projects/mercat-kzero-web/src/assets"],
+            "assets": [
+              "projects/mercat-kzero-web/src/favicon.ico",
+              "projects/mercat-kzero-web/src/assets",
+              "projects/mercat-kzero-web/src/manifest.webmanifest"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/mercat-kzero-web/src/styles.scss"
