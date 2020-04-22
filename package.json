@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "eslint \"**/*.{js,ts}\" --quiet --fix",
-    "e2e": "ng e2e"
+    "lint": "eslint \"**/*.{js,ts}\" --quiet --fix"
   },
   "private": true,
   "dependencies": {
