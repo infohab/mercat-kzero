@@ -1,0 +1,168 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "mercat-kzero-web": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/mercat-kzero-web",
+      "sourceRoot": "projects/mercat-kzero-web/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mercat-kzero-web",
+            "index": "projects/mercat-kzero-web/src/index.html",
+            "main": "projects/mercat-kzero-web/src/main.ts",
+            "polyfills": "projects/mercat-kzero-web/src/polyfills.ts",
+            "tsConfig": "projects/mercat-kzero-web/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/mercat-kzero-web/src/favicon.ico",
+              "projects/mercat-kzero-web/src/assets"
+            ],
+            "styles": [
+              "projects/mercat-kzero-web/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mercat-kzero-web/src/environments/environment.ts",
+                  "with": "projects/mercat-kzero-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mercat-kzero-web:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mercat-kzero-web:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mercat-kzero-web:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mercat-kzero-web/src/test.ts",
+            "polyfills": "projects/mercat-kzero-web/src/polyfills.ts",
+            "tsConfig": "projects/mercat-kzero-web/tsconfig.spec.json",
+            "karmaConfig": "projects/mercat-kzero-web/karma.conf.js",
+            "assets": [
+              "projects/mercat-kzero-web/src/favicon.ico",
+              "projects/mercat-kzero-web/src/assets"
+            ],
+            "styles": [
+              "projects/mercat-kzero-web/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mercat-kzero-web/tsconfig.app.json",
+              "projects/mercat-kzero-web/tsconfig.spec.json",
+              "projects/mercat-kzero-web/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/mercat-kzero-web/e2e/protractor.conf.js",
+            "devServerTarget": "mercat-kzero-web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mercat-kzero-web:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "mercat-kzero-lib": {
+      "projectType": "library",
+      "root": "projects/mercat-kzero-lib",
+      "sourceRoot": "projects/mercat-kzero-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mercat-kzero-lib/tsconfig.lib.json",
+            "project": "projects/mercat-kzero-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mercat-kzero-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mercat-kzero-lib/src/test.ts",
+            "tsConfig": "projects/mercat-kzero-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/mercat-kzero-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mercat-kzero-lib/tsconfig.lib.json",
+              "projects/mercat-kzero-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "mercat-kzero-web"
+}
