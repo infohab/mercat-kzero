@@ -1,6 +1,5 @@
 import { productsMock } from '../product/product-mock';
 import { Producer } from './producer.interface';
-import { google } from 'google-maps';
 
 export const producersMock: Producer[] = [
   {
