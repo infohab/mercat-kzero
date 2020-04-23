@@ -1,0 +1,38 @@
+:host {
+  width: 100%;
+
+  .mat-card {
+    text-align: center;
+
+    .mat-form-field {
+      width: 100%;
+    }
+
+    .mat-card-image {
+      width: 100%;
+      margin: 0;
+    }
+
+    .mat-card-title {
+      font-size: 12px;
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    button.mat-icon-button {
+      font-size: 26px;
+    }
+
+    .mat-form-field {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    width: unset;
+    .mat-card {
+      width: 130px;
+      height: 210px;
+    }
+  }
+}

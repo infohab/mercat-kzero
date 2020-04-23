@@ -1,0 +1,37 @@
+app-select-products {
+  display: block;
+  overflow: auto;
+  height: calc(100vh - 64px);
+  padding: 32px;
+  box-sizing: border-box;
+  background: url('../../../../assets/img/fondo7.png');
+  background-position: bottom center;
+  background-size: cover;
+
+  .mat-card {
+    margin: 12px 0;
+  }
+
+  .products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .separator {
+      margin: 0 8px;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .mat-card {
+      max-width: 300px;
+      margin: 32px;
+    }
+  }
+}

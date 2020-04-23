@@ -1,0 +1,14 @@
+<section class="description">
+  <app-description></app-description>
+</section>
+<section class="provider">
+  <div class="information-content">
+    <p i18n class="category">KZero farms and sellers</p>
+    <p i18n class="short-description mat-display-1">From the farm to your table.</p>
+    <p i18n class="instructions">
+      Select a farm from the map to start the purchase process. By selecting a farm you get access to all of their
+      available products.
+    </p>
+  </div>
+  <app-product-map (markerClicked)="onMarkerClicked($event)"></app-product-map>
+</section>

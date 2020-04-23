@@ -1,0 +1,19 @@
+<mat-card *ngIf="product" class="mat-elevation-z8">
+  <img [alt]="product.name" [src]="product.image" mat-card-image />
+
+  <mat-card-content>
+    <p mat-card-title>{{ product.name }} {{ product.price | currency: 'EUR' }}/{{ product.measurementUnit }}</p>
+    <mat-form-field>
+      <button mat-icon-button matPrefix>
+        <mat-icon (click)="decrement()" class="minus-icon">remove_circle_outline</mat-icon>
+      </button>
+      <input [formControl]="amount" matInput type="number" />
+      <button mat-icon-button matSuffix>
+        <mat-icon (click)="increment()" class="plus-icon">add_circle_outline</mat-icon>
+      </button>
+      <mat-error i18n *ngIf="amount.hasError('min')">Value has to be greater than zero.</mat-error>
+      <mat-error i18n *ngIf="amount.hasError('max')">Value has to be less than {{ product.availableStock }}.</mat-error>
+      <mat-error i18n *ngIf="amount.hasError('required')">This value is required!</mat-error>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

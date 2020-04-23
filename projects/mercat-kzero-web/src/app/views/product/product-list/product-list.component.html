@@ -1,0 +1,15 @@
+<h1 i18n mat-dialog-title>Orchard details</h1>
+<div mat-dialog-content>
+  <p i18n>Name: {{ producer.displayName }}</p>
+  <p i18n>Location: {{ producer.location }}</p>
+  <span i18n>Rating:</span>
+  <app-rating-stars [rating]="producer.rating"></app-rating-stars>
+
+  <div class="products-section">
+    <app-product-item
+      *ngFor="let product of products"
+      [mat-dialog-close]="{ producer: producer, basket: product }"
+      [seller]="product"
+    ></app-product-item>
+  </div>
+</div>
