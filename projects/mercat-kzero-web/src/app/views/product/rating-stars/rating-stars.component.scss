@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+
+  .rating {
+    &:not(:checked) > input {
+      position: absolute;
+      top: -9999px;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    &:not(:checked) > label {
+      float: right;
+      width: 1em;
+      padding: 0.1em;
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 150%;
+      line-height: 1.2;
+      color: #ddd;
+    }
+
+    &:not(:checked) > label:before {
+      content: '★ ';
+    }
+
+    & > input:checked ~ label {
+      color: gold;
+    }
+
+    &:not(:checked) > label:hover,
+    &:not(:checked) > label:hover ~ label {
+      color: gold;
+    }
+  }
+}

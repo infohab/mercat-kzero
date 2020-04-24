@@ -1,0 +1,43 @@
+:host {
+  width: 100%;
+  background: url('../../../../assets/img/fondo5.jpg') center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  width: 85%;
+  margin: 0 auto;
+  padding: 10px 30px;
+}
+
+p {
+  margin-bottom: 40px;
+  line-height: 1.5;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.logo {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 200px;
+}
+
+@media screen and (min-width: 600px) {
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    line-height: 1.2;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .logo {
+    max-width: 400px;
+  }
+}

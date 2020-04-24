@@ -1,0 +1,61 @@
+:host {
+  display: block;
+  overflow: auto;
+  height: calc(100vh - 64px);
+
+  section {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      flex: 1 1 0;
+    }
+
+    .information-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px;
+
+      .short-description {
+        margin-bottom: 12px;
+      }
+    }
+
+    &.provider {
+      app-product-map {
+        height: 300px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    section {
+      flex-direction: row;
+      height: 100%;
+      position: sticky;
+      top: 0;
+
+      &.provider {
+        app-product-map {
+          height: unset;
+        }
+      }
+
+      &.basket {
+        flex-direction: column;
+
+        .information-content {
+          padding: 0 64px;
+          flex: 0.5;
+
+          .short-description {
+            margin-bottom: 12px;
+          }
+        }
+      }
+    }
+  }
+}

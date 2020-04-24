@@ -7,7 +7,8 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
-    "lint": "eslint \"projects/**/*.{js,ts}\" --quiet --fix"
+    "lint": "eslint \"projects/**/*.{js,ts}\" --quiet --fix",
+    "i18n": "ng xi18n --output-path src/locale"
   },
   "husky": {
     "hooks": {
@@ -28,6 +29,7 @@
     "@angular/platform-browser-dynamic": "~9.1.1",
     "@angular/router": "~9.1.1",
     "@angular/service-worker": "~9.1.1",
+    "@types/google-maps": "^3.2.2",
     "application": "^0.1.4",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

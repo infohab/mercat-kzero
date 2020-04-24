@@ -1,4 +1,34 @@
-# MercatKzero
+# Mercat KZero by CodeNoir
+
+**Mercat KZero** is an e-commerce platform for small agricultural producers. Its main objectives are to make small producers known, offer products without intermediaries, and create a collaborative economy model that reduces consumer costs and benefits producers simultaneously.
+
+**Marcat KZero** is a _progressive web application_ (PWA) that follows an agile development model to deliver functionalities similar to native applications, capable of reaching anyone, anywhere, on any device.
+
+The fundamental characteristics of **Mercat KZero** are:
+
+- High performance
+- Cross-browser
+- Responsive to any screen size
+- Internationalization and localization
+- It is installable
+- Follow good coding practices
+
+The technologies used are:
+
+- Angular 9
+- Firebase
+- GitHub
+- Sass
+- Angular Material
+
+Next functionalities to develop:
+
+- Administration panel
+- Authentication and authorization
+- Roles
+- Payment gateway
+- Filters and search engine
+- Unit tests
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
