@@ -14,9 +14,17 @@
 
   h1 {
     cursor: pointer;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 20px;
 
     &:focus {
       outline: none;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    h1 {
+      font-size: 35px;
     }
   }
 }
