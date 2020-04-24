@@ -1,0 +1,36 @@
+<button (click)="$event.stopPropagation()" [matMenuTriggerFor]="cart" mat-button>
+  <mat-icon
+    [matBadgeSize]="'small'"
+    [matBadge]="getCartBadge(cartService?.cartItems?.selected?.length)"
+    [class.active]="!cartService.cartItems.isEmpty()"
+    >shopping_cart</mat-icon
+  >
+</button>
+<mat-menu #cart="matMenu">
+  <mat-list>
+    <ng-container *ngIf="cartService.cartItems.isEmpty(); else cartList">
+      <h3 i18n matSubheader>Your cart is empty!</h3>
+    </ng-container>
+  </mat-list>
+</mat-menu>
+
+<ng-template #cartList>
+  <h3 i18n matSubheader>Your selected products:</h3>
+  <mat-list-item *ngFor="let cartItem of cartService.cartItems.selected">
+    <img alt="{{ cartItem.product.name }}" matListAvatar src="{{ cartItem.product.image }}" />
+    <h3 matLine>{{ cartItem.product.name }}</h3>
+    <p matLine>
+      <span> {{ cartItem.amount }} {{ cartItem.product.measurementUnit }} </span>
+      <span class="demo-2"> -- {{ cartItem.amount * cartItem.product.price | currency: 'EUR' }} </span>
+    </p>
+    <button (click)="$event.stopPropagation(); cartService.deselect(cartItem)" mat-icon-button>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <div class="price-total">
+    <span class="mat-h2" i18n>Total price:</span>
+    <span class="flex-spacer"></span>
+    <span class="mat-h2">{{ cartService.totalPrice | async | currency: 'EUR' }}</span>
+  </div>
+</ng-template>

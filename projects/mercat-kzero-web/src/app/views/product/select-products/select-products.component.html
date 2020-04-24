@@ -1,0 +1,22 @@
+<div class="breadcrumb">
+  <a routerLink="/">Home</a>
+  <div class="separator">/</div>
+  <span i18n>Product selection</span>
+</div>
+<mat-accordion>
+  <mat-expansion-panel
+    (opened)="setStep(i)"
+    *ngFor="let productCategory of productsSubject | async; let i = index"
+    [expanded]="step === i"
+  >
+    <mat-expansion-panel-header>
+      {{ productCategory | titlecase }}
+    </mat-expansion-panel-header>
+    <div class="products">
+      <app-select-product-item
+        *ngFor="let product of groupedProducts[productCategory]"
+        [product]="product"
+      ></app-select-product-item>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

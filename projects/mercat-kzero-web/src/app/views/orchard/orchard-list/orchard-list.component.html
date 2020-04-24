@@ -1,0 +1,8 @@
+<mat-list>
+  <mat-list-item *ngFor="let producer of producerService.producers$ | async">
+    <p i18n matLine>Provider</p>
+    <h2 matLine class="mat-h2">{{ producer.displayName }}</h2>
+    <div matLine></div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>

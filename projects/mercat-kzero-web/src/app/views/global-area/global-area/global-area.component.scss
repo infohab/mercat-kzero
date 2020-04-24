@@ -1,0 +1,25 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+
+  .sidenav-items {
+    span {
+      margin-left: 60px;
+    }
+
+    a:hover {
+      background-color: lightblue;
+    }
+  }
+}
+
+.mat-toolbar {
+  background: inherit;
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
