@@ -14,20 +14,24 @@
     padding: 20px;
     h1 {
       font-size: 35px;
+      font-family: 'Playfair Display SC', serif;
     }
     h2 {
       font-size: 20px;
       color: white;
+      font-family: 'Cabin, sans-serif';
     }
 
     h2 span {
       font-size: 25px;
       color: rgb(172, 223, 113);
+      font-family: 'Cabin, sans-serif';
     }
 
     p {
       color: rgb(172, 223, 113);
       margin: 0;
+      font-family: 'Lora', serif;
     }
   }
 }
