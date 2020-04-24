@@ -1,43 +1,66 @@
-:host {
+.conteiner {
   width: 100%;
-  background: url('../../../../assets/img/fondo5.jpg') center center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-}
+  height: 100vh;
+  .img {
+    height: 60%;
+    width: 100%;
+    background: url('../../../../assets/img/vegetables-stand.jpg');
+    background-position: center center;
+    background-size: cover;
+  }
+  .description {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    h1 {
+      font-size: 35px;
+    }
+    h2 {
+      font-size: 20px;
+      color: white;
+    }
 
-.description {
-  width: 85%;
-  margin: 0 auto;
-  padding: 10px 30px;
-}
+    h2 span {
+      font-size: 25px;
+      color: rgb(172, 223, 113);
+    }
 
-p {
-  margin-bottom: 40px;
-  line-height: 1.5;
-  font-weight: 300;
-  font-size: 16px;
-}
-
-.logo {
-  margin-top: 10px;
-  width: 100%;
-  max-width: 200px;
+    p {
+      color: rgb(172, 223, 113);
+      margin: 0;
+    }
+  }
 }
 
 @media screen and (min-width: 600px) {
-  h1 {
-    text-align: center;
-  }
-
-  p {
-    line-height: 1.2;
-    text-align: left;
+  .conteiner {
+    display: flex;
+    .img {
+      height: 100vh;
+    }
+    .description {
+      width: 40%;
+      padding-top: 40px;
+      h1 {
+        font-size: 45px;
+        margin-bottom: 40px;
+      }
+      p {
+        text-align: justify;
+      }
+      h2 {
+        margin-top: 10px;
+        font-size: 30px;
+      }
+      h2 span {
+        font-size: 35px;
+      }
+    }
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .logo {
-    max-width: 400px;
-  }
-}
+// @media screen and (min-width: 1024px) {
+//   .logo {
+//     max-width: 400px;
+//   }
+// }
