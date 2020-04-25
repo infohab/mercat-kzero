@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductListComponent } from '../../product/product-list/product-list.component';
-import { Producer } from '../../../core/producer/producer.interface';
+import { Producer } from 'mercat-kzero-lib';
 import { filter, tap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';

@@ -11,7 +11,7 @@ import {
 import { google } from 'google-maps';
 import { mapStyles } from './map-styles';
 import { ProducerService } from '../../../core/producer/producer.service';
-import { Producer } from '../../../core/producer/producer.interface';
+import { Producer } from 'mercat-kzero-lib';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
@@ -40,6 +40,7 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
   public constructor(private producerService: ProducerService) {}
 
   public ngOnInit(): void {
+    this.producerService.getProducerList().subscribe();
     this.producerService.producers$.pipe(debounceTime(300), distinctUntilChanged()).subscribe((producers) => {
       this.producers = producers || [];
       this.addMarkers();
@@ -57,10 +58,16 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
   }
 
-  private addMarkers() {
+  private addMarkers(): void {
     const icon = 'assets/icons/kzero-pin.png';
     this.producers.forEach((producer) => {
-      const marker = new google.maps.Marker({ ...producer, icon });
+      const [lat, lon] = producer.position;
+      const markerData = {
+        ...producer,
+        position: new google.maps.LatLng(lat, lon),
+        icon
+      };
+      const marker = new google.maps.Marker(markerData);
       marker.addListener('click', () => this.onMarkerClick(producer));
       marker.setMap(this.map);
     });

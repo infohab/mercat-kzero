@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod",
+    "build:lib": "ng build mercat-kzero-lib --watch",
     "test": "ng test",
     "lint": "eslint \"projects/**/*.{js,ts}\" --quiet --fix",
     "i18n": "ng xi18n --output-path src/locale"

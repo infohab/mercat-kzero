@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { MercatKzeroLibComponent } from './mercat-kzero-lib.component';
 
 @NgModule({
-  declarations: [MercatKzeroLibComponent],
+  declarations: [],
   imports: [],
-  exports: [MercatKzeroLibComponent],
+  exports: []
 })
 export class MercatKzeroLibModule {}
