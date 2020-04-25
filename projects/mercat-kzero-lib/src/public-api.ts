@@ -2,7 +2,6 @@
  * Public API Surface of mercat-kzero-lib
  */
 
-export * from './lib/mercat-kzero-lib.service';
 export * from './lib/cart/cart-item.interface';
 export * from './lib/product/product.interface';
 export * from './lib/product/product-api.service';

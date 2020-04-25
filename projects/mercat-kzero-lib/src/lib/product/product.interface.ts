@@ -6,10 +6,19 @@ export interface Product {
   name: string;
   measurementUnit: string;
   productType: ProductType;
+  displayName: string;
+  category: ItemCategory;
 }
 
 export enum ProductType {
   VEGETABLES = 'Vegetables',
   FRUITS = 'Fruits',
   TUBERCLES = 'Tubercles'
+}
+
+export enum ItemCategory {
+  a,
+  b,
+  c,
+  d
 }
