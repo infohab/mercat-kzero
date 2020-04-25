@@ -7,7 +7,7 @@ import { CartItem } from 'mercat-kzero-lib';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartStoreService {
   public cartItems: SelectionModel<CartItem> = new SelectionModel<CartItem>(true);
   public totalPrice = new BehaviorSubject(0);
   public totalAmount = new BehaviorSubject(0);

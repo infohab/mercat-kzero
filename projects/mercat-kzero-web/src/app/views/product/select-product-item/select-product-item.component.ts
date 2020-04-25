@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { CartService } from '../../../core/cart/cart.service';
+import { CartStoreService } from '../../../core/cart/cart-store.service';
 import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs/operators';
 import { Product } from 'mercat-kzero-lib';
 
@@ -13,7 +13,7 @@ export class SelectProductItemComponent implements OnInit, OnChanges {
   @Input() public product: Product;
   public amount: FormControl;
 
-  public constructor(private cartService: CartService) {}
+  public constructor(private cartStoreService: CartStoreService) {}
 
   public ngOnInit(): void {
     this.amount.valueChanges
@@ -34,13 +34,13 @@ export class SelectProductItemComponent implements OnInit, OnChanges {
         }),
         tap(() => {
           if (this.amount.valid) {
-            this.cartService.updateCart(this.product, +this.amount.value);
+            this.cartStoreService.updateCart(this.product, +this.amount.value);
           }
         })
       )
       .subscribe();
 
-    this.cartService.onItemRemoved
+    this.cartStoreService.onItemRemoved
       .pipe(
         tap((item) => {
           if (item.product.id === this.product.id) {
