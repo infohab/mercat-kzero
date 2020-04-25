@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ProductStoreService } from '../../../core/product/product.service';
+import { ProductStoreService } from '../../../core/product/product-store.service';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
