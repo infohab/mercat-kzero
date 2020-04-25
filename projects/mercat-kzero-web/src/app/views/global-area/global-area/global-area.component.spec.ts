@@ -23,8 +23,8 @@ describe('GlobalAreaComponent', () => {
         MatIconModule,
         MatListModule,
         MatSidenavModule,
-        MatToolbarModule,
-      ],
+        MatToolbarModule
+      ]
     }).compileComponents();
   }));
 

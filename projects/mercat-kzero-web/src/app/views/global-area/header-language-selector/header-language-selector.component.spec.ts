@@ -8,7 +8,7 @@ describe('HeaderLanguageSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderLanguageSelectorComponent],
+      declarations: [HeaderLanguageSelectorComponent]
     }).compileComponents();
   }));
 

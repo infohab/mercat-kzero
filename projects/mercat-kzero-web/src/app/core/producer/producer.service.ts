@@ -4,7 +4,7 @@ import { producersMock } from './producers-mock';
 import { Producer } from './producer.interface';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProducerService {
   private selectedProducerSubject = new BehaviorSubject(null);

@@ -19,7 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DescriptionModule,
     OrchardModule,
     MatDialogModule,
-    MatSnackBarModule,
-  ],
+    MatSnackBarModule
+  ]
 })
 export class MainContentModule {}

@@ -8,7 +8,7 @@ describe('HeaderLogoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderLogoComponent],
+      declarations: [HeaderLogoComponent]
     }).compileComponents();
   }));
 

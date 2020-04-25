@@ -4,7 +4,7 @@ import { PlatformLocation } from '@angular/common';
 @Component({
   selector: 'app-header-language-selector',
   templateUrl: './header-language-selector.component.html',
-  styleUrls: ['./header-language-selector.component.scss'],
+  styleUrls: ['./header-language-selector.component.scss']
 })
 export class HeaderLanguageSelectorComponent {
   public constructor(private platformLocation: PlatformLocation) {}

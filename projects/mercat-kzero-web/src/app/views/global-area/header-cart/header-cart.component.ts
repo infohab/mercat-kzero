@@ -5,7 +5,7 @@ import { CartService } from '../../../core/cart/cart.service';
   selector: 'app-header-cart',
   templateUrl: './header-cart.component.html',
   styleUrls: ['./header-cart.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class HeaderCartComponent {
   constructor(public cartService: CartService) {}

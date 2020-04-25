@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core';
 import { google } from 'google-maps';
 import { mapStyles } from './map-styles';
@@ -18,7 +18,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   selector: 'app-product-map',
   templateUrl: './product-map.component.html',
   styleUrls: ['./product-map.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class ProductMapComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer', { static: false }) public gmap: ElementRef;
@@ -32,7 +32,7 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
     zoom: 12,
     scrollwheel: false,
     gestureHandling: 'cooperative',
-    styles: mapStyles,
+    styles: mapStyles
   };
 
   private producers: Producer[];

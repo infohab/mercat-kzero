@@ -5,6 +5,6 @@ import { ProductMapComponent } from './product-map/product-map.component';
 @NgModule({
   declarations: [ProductMapComponent],
   exports: [ProductMapComponent],
-  imports: [CommonModule],
+  imports: [CommonModule]
 })
 export class MapViewModule {}
