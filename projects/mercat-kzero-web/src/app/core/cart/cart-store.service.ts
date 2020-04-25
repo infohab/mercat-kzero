@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Product } from '../product/product.interface';
-
-export interface CartItem {
-  amount: number;
-  product: Product;
-}
+import { Product } from 'mercat-kzero-lib';
+import { CartItem } from 'mercat-kzero-lib';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class CartService {
+export class CartStoreService {
   public cartItems: SelectionModel<CartItem> = new SelectionModel<CartItem>(true);
   public totalPrice = new BehaviorSubject(0);
   public totalAmount = new BehaviorSubject(0);
   public onItemRemoved = new Subject<CartItem>();
 
-  public updateCart(productToUpdate: Product, amount: number) {
+  public updateCart(productToUpdate: Product, amount: number): void {
     const cartItem = this.isActiveOnCart(productToUpdate);
     if (cartItem) {
       this.updateAmount(cartItem, amount);
@@ -27,7 +23,7 @@ export class CartService {
     this.updateCalculatedValues();
   }
 
-  public deselect(cartItem): void {
+  public deselect(cartItem: CartItem): void {
     this.cartItems.deselect(cartItem);
     this.updateCalculatedValues();
     this.onItemRemoved.next(cartItem);

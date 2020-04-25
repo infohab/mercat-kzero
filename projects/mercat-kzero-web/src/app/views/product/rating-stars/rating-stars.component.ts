@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-rating-stars',
   templateUrl: './rating-stars.component.html',
-  styleUrls: ['./rating-stars.component.scss'],
+  styleUrls: ['./rating-stars.component.scss']
 })
 export class RatingStarsComponent implements OnInit {
   @Input() itemId;
@@ -21,7 +21,7 @@ export class RatingStarsComponent implements OnInit {
     this.rating = rating;
     this.ratingClick.emit({
       itemId: this.itemId,
-      rating,
+      rating
     });
   }
 }

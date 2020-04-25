@@ -1,12 +1,12 @@
 import { Component, Inject } from '@angular/core';
 import { products } from './products';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Producer } from '../../../core/producer/producer.interface';
+import { Producer } from 'mercat-kzero-lib';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss'],
+  styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
   public products = products;

@@ -7,7 +7,7 @@ import { map, shareReplay } from 'rxjs/operators';
   selector: 'app-global-area',
   templateUrl: './global-area.component.html',
   styleUrls: ['./global-area.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class GlobalAreaComponent {
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.XSmall).pipe(

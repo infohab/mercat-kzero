@@ -6,19 +6,19 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core';
 import { google } from 'google-maps';
 import { mapStyles } from './map-styles';
-import { ProducerService } from '../../../core/producer/producer.service';
-import { Producer } from '../../../core/producer/producer.interface';
+import { ProducerStoreService } from '../../../core/producer/producer-store.service';
+import { Producer } from 'mercat-kzero-lib';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-map',
   templateUrl: './product-map.component.html',
   styleUrls: ['./product-map.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class ProductMapComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer', { static: false }) public gmap: ElementRef;
@@ -32,15 +32,16 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
     zoom: 12,
     scrollwheel: false,
     gestureHandling: 'cooperative',
-    styles: mapStyles,
+    styles: mapStyles
   };
 
   private producers: Producer[];
 
-  public constructor(private producerService: ProducerService) {}
+  public constructor(private producerStoreService: ProducerStoreService) {}
 
   public ngOnInit(): void {
-    this.producerService.producers$.pipe(debounceTime(300), distinctUntilChanged()).subscribe((producers) => {
+    this.producerStoreService.getProducerList().subscribe();
+    this.producerStoreService.producers$.pipe(debounceTime(300), distinctUntilChanged()).subscribe((producers) => {
       this.producers = producers || [];
       this.addMarkers();
     });
@@ -57,17 +58,23 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
   }
 
-  private addMarkers() {
+  private addMarkers(): void {
     const icon = 'assets/icons/kzero-pin.png';
     this.producers.forEach((producer) => {
-      const marker = new google.maps.Marker({ ...producer, icon });
+      const [lat, lon] = producer.position;
+      const markerData = {
+        ...producer,
+        position: new google.maps.LatLng(lat, lon),
+        icon
+      };
+      const marker = new google.maps.Marker(markerData);
       marker.addListener('click', () => this.onMarkerClick(producer));
       marker.setMap(this.map);
     });
   }
 
   private onMarkerClick(producer): void {
-    this.producerService.selectedProducer = producer;
+    this.producerStoreService.selectedProducer = producer;
     this.markerClicked.emit(producer);
   }
 }

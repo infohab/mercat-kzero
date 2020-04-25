@@ -27,7 +27,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     HeaderLanguageSelectorComponent,
     HeaderLinksComponent,
     HeaderLogoComponent,
-    HeaderCartComponent,
+    HeaderCartComponent
   ],
   imports: [
     CommonModule,
@@ -39,8 +39,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatListModule,
     MatMenuModule,
     RouterModule,
-    MatBadgeModule,
+    MatBadgeModule
   ],
-  exports: [GlobalAreaComponent],
+  exports: [GlobalAreaComponent]
 })
 export class GlobalAreaModule {}

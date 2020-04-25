@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductListComponent } from '../../product/product-list/product-list.component';
-import { Producer } from '../../../core/producer/producer.interface';
+import { Producer } from 'mercat-kzero-lib';
 import { filter, tap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-content',
   templateUrl: './main-content.component.html',
-  styleUrls: ['./main-content.component.scss'],
+  styleUrls: ['./main-content.component.scss']
 })
 export class MainContentComponent {
   constructor(private matDialog: MatDialog, private matSnackBar: MatSnackBar, private router: Router) {}
 
   public onMarkerClicked(producer: Producer): void {
     const orchardDetailsDialog = this.matDialog.open(ProductListComponent, {
-      data: producer,
+      data: producer
     });
 
     orchardDetailsDialog

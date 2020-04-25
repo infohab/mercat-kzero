@@ -8,7 +8,7 @@ describe('HeaderProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderProfileComponent],
+      declarations: [HeaderProfileComponent]
     }).compileComponents();
   }));
 

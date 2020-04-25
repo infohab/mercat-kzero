@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router';
     ProductItemComponent,
     RatingStarsComponent,
     SelectProductsComponent,
-    SelectProductItemComponent,
+    SelectProductItemComponent
   ],
   imports: [
     CommonModule,
@@ -31,8 +31,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     MatDialogModule,
     MatExpansionModule,
-    RouterModule,
+    RouterModule
   ],
-  exports: [ProductListComponent, SelectProductsComponent],
+  exports: [ProductListComponent, SelectProductsComponent]
 })
 export class ProductModule {}
