@@ -1,8 +1,6 @@
-.conteiner {
-  width: 100%;
-  height: 100vh;
+:host {
   .img {
-    height: 60%;
+    height: 50vh;
     width: 100%;
     background: url('../../../../assets/img/vegetables-stand.jpg');
     background-position: center center;
@@ -10,11 +8,11 @@
   }
   .description {
     background-color: black;
-    color: white;
     padding: 20px;
     h1 {
       font-size: 35px;
       font-family: 'Playfair Display SC', serif;
+      color: white;
     }
     h2 {
       font-size: 20px;
@@ -37,10 +35,10 @@
 }
 
 @media screen and (min-width: 600px) {
-  .conteiner {
+  :host {
     display: flex;
     .img {
-      height: 100vh;
+      height: 100%;
     }
     .description {
       width: 40%;
@@ -48,6 +46,7 @@
       h1 {
         font-size: 45px;
         margin-bottom: 40px;
+
         line-height: 0.8;
       }
       p {

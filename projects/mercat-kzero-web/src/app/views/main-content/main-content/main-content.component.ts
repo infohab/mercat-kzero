@@ -5,6 +5,7 @@ import { Producer } from '../../../core/producer/producer.interface';
 import { filter, tap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ProducerService } from '../../../core/producer/producer.service';
 
 @Component({
   selector: 'app-main-content',
@@ -12,7 +13,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-content.component.scss'],
 })
 export class MainContentComponent {
-  constructor(private matDialog: MatDialog, private matSnackBar: MatSnackBar, private router: Router) {}
+  constructor(
+    private matDialog: MatDialog,
+    private matSnackBar: MatSnackBar,
+    private router: Router,
+    public producerService: ProducerService
+  ) {}
 
   public onMarkerClicked(producer: Producer): void {
     const orchardDetailsDialog = this.matDialog.open(ProductListComponent, {
