@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProducerService {
+export class ProducerStoreService {
   private selectedProducerSubject = new BehaviorSubject(null);
   private producersSubject = new BehaviorSubject<Producer[]>([]);
   public producers$ = this.producersSubject.asObservable();

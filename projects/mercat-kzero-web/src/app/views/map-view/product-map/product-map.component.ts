@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { google } from 'google-maps';
 import { mapStyles } from './map-styles';
-import { ProducerService } from '../../../core/producer/producer.service';
+import { ProducerStoreService } from '../../../core/producer/producer-store.service';
 import { Producer } from 'mercat-kzero-lib';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -37,11 +37,11 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
 
   private producers: Producer[];
 
-  public constructor(private producerService: ProducerService) {}
+  public constructor(private producerStoreService: ProducerStoreService) {}
 
   public ngOnInit(): void {
-    this.producerService.getProducerList().subscribe();
-    this.producerService.producers$.pipe(debounceTime(300), distinctUntilChanged()).subscribe((producers) => {
+    this.producerStoreService.getProducerList().subscribe();
+    this.producerStoreService.producers$.pipe(debounceTime(300), distinctUntilChanged()).subscribe((producers) => {
       this.producers = producers || [];
       this.addMarkers();
     });
@@ -74,7 +74,7 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
   }
 
   private onMarkerClick(producer): void {
-    this.producerService.selectedProducer = producer;
+    this.producerStoreService.selectedProducer = producer;
     this.markerClicked.emit(producer);
   }
 }

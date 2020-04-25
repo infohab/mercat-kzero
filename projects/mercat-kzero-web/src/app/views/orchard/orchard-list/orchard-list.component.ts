@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ProducerService } from '../../../core/producer/producer.service';
+import { ProducerStoreService } from '../../../core/producer/producer-store.service';
 
 @Component({
   selector: 'app-orchard-list',
@@ -8,5 +8,5 @@ import { ProducerService } from '../../../core/producer/producer.service';
   encapsulation: ViewEncapsulation.None
 })
 export class OrchardListComponent {
-  public constructor(public producerService: ProducerService) {}
+  public constructor(public producerStoreService: ProducerStoreService) {}
 }
