@@ -146,6 +146,99 @@
           }
         }
       }
+    },
+    "tu-cita": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/tu-cita",
+      "sourceRoot": "projects/tu-cita/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tu-cita",
+            "index": "projects/tu-cita/src/index.html",
+            "main": "projects/tu-cita/src/main.ts",
+            "polyfills": "projects/tu-cita/src/polyfills.ts",
+            "tsConfig": "projects/tu-cita/tsconfig.app.json",
+            "aot": true,
+            "assets": ["projects/tu-cita/src/favicon.ico", "projects/tu-cita/src/assets"],
+            "styles": ["projects/tu-cita/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tu-cita/src/environments/environment.ts",
+                  "with": "projects/tu-cita/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tu-cita:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tu-cita:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tu-cita:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tu-cita/src/test.ts",
+            "polyfills": "projects/tu-cita/src/polyfills.ts",
+            "tsConfig": "projects/tu-cita/tsconfig.spec.json",
+            "karmaConfig": "projects/tu-cita/karma.conf.js",
+            "assets": ["projects/tu-cita/src/favicon.ico", "projects/tu-cita/src/assets"],
+            "styles": ["projects/tu-cita/src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["projects/tu-cita/tsconfig.app.json", "projects/tu-cita/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "mercat-kzero-web"
