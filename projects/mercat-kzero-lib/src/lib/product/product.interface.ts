@@ -1,3 +1,5 @@
+import { ItemCategory } from '../item/item-category';
+
 export interface Product {
   id: string;
   image: string;
@@ -14,11 +16,4 @@ export enum ProductType {
   VEGETABLES = 'Vegetables',
   FRUITS = 'Fruits',
   TUBERCLES = 'Tubercles'
-}
-
-export enum ItemCategory {
-  a,
-  b,
-  c,
-  d
 }
