@@ -31,7 +31,8 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
     zoom: 12,
     scrollwheel: false,
     gestureHandling: 'cooperative',
-    styles: mapStyles
+    styles: mapStyles,
+    mapTypeControl: false
   };
 
   private producers = [];
