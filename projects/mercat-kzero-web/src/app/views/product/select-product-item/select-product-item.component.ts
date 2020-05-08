@@ -7,7 +7,7 @@ import { Product } from '../../../core/product/product.interface';
 @Component({
   selector: 'app-select-product-item',
   templateUrl: './select-product-item.component.html',
-  styleUrls: ['./select-product-item.component.scss'],
+  styleUrls: ['./select-product-item.component.scss']
 })
 export class SelectProductItemComponent implements OnInit, OnChanges {
   @Input() public product: Product;
@@ -55,7 +55,7 @@ export class SelectProductItemComponent implements OnInit, OnChanges {
     this.amount = new FormControl(0, [
       Validators.required,
       Validators.min(0),
-      Validators.max(this.product.availableStock),
+      Validators.max(this.product.availableStock)
     ]);
   }
 

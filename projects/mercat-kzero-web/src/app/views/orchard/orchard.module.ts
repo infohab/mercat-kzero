@@ -8,6 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [OrchardListComponent, OrchardItemComponent],
   exports: [OrchardListComponent],
-  imports: [CommonModule, MatListModule, MatIconModule],
+  imports: [CommonModule, MatListModule, MatIconModule]
 })
 export class OrchardModule {}

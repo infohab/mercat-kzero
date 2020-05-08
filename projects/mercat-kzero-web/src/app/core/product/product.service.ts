@@ -4,7 +4,7 @@ import { productsMock } from './product-mock';
 import { Product } from './product.interface';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductService {
   private productsSubject = new BehaviorSubject<Product[]>(productsMock);

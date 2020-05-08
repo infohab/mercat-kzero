@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
   selector: 'app-select-products',
   templateUrl: './select-products.component.html',
   styleUrls: ['./select-products.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class SelectProductsComponent implements OnInit {
   public step = 0;

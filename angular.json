@@ -168,7 +168,10 @@
             "tsConfig": "projects/tu-cita/tsconfig.app.json",
             "aot": true,
             "assets": ["projects/tu-cita/src/favicon.ico", "projects/tu-cita/src/assets"],
-            "styles": ["projects/tu-cita/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/tu-cita/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -227,7 +230,10 @@
             "tsConfig": "projects/tu-cita/tsconfig.spec.json",
             "karmaConfig": "projects/tu-cita/karma.conf.js",
             "assets": ["projects/tu-cita/src/favicon.ico", "projects/tu-cita/src/assets"],
-            "styles": ["projects/tu-cita/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/tu-cita/src/styles.scss"
+            ],
             "scripts": []
           }
         },

@@ -9,7 +9,7 @@ export interface CartItem {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CartService {
   public cartItems: SelectionModel<CartItem> = new SelectionModel<CartItem>(true);

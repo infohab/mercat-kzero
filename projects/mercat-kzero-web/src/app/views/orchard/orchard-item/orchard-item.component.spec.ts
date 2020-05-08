@@ -8,7 +8,7 @@ describe('OrchardItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [OrchardItemComponent],
+      declarations: [OrchardItemComponent]
     }).compileComponents();
   }));
 

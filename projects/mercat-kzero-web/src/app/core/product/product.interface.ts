@@ -11,5 +11,5 @@ export interface Product {
 export enum ProductType {
   VEGETABLES = 'Vegetables',
   FRUITS = 'Fruits',
-  TUBERCLES = 'Tubercles',
+  TUBERCLES = 'Tubercles'
 }

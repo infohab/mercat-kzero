@@ -8,7 +8,7 @@ describe('HeaderLinksComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderLinksComponent],
+      declarations: [HeaderLinksComponent]
     }).compileComponents();
   }));
 

@@ -8,7 +8,7 @@ describe('MercatKzeroLibComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MercatKzeroLibComponent],
+      declarations: [MercatKzeroLibComponent]
     }).compileComponents();
   }));
 

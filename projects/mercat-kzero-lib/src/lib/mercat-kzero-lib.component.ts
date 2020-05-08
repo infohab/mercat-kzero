@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
       mercat-kzero-lib works!
     </p>
   `,
-  styles: [],
+  styles: []
 })
 export class MercatKzeroLibComponent {}

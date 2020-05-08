@@ -8,7 +8,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 63,
     image: 'assets/img/zanahorias.png',
-    productType: ProductType.TUBERCLES,
+    productType: ProductType.TUBERCLES
   },
   {
     id: '2',
@@ -17,7 +17,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 44,
     image: 'assets/img/platano.png',
-    productType: ProductType.FRUITS,
+    productType: ProductType.FRUITS
   },
   {
     id: '3',
@@ -26,7 +26,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 24,
     image: 'assets/img/apple.png',
-    productType: ProductType.FRUITS,
+    productType: ProductType.FRUITS
   },
   {
     id: '4',
@@ -35,7 +35,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 56,
     image: 'assets/img/sweetpotato.png',
-    productType: ProductType.TUBERCLES,
+    productType: ProductType.TUBERCLES
   },
   {
     id: '5',
@@ -44,7 +44,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 35,
     image: 'assets/img/potato.png',
-    productType: ProductType.TUBERCLES,
+    productType: ProductType.TUBERCLES
   },
   {
     id: '6',
@@ -53,7 +53,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 45,
     image: 'assets/img/lettuce.png',
-    productType: ProductType.VEGETABLES,
+    productType: ProductType.VEGETABLES
   },
   {
     id: '7',
@@ -62,7 +62,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 12,
     image: 'assets/img/tangerine.png',
-    productType: ProductType.FRUITS,
+    productType: ProductType.FRUITS
   },
   {
     id: '8',
@@ -71,7 +71,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 50,
     image: 'assets/img/pear.png',
-    productType: ProductType.FRUITS,
+    productType: ProductType.FRUITS
   },
   {
     id: '9',
@@ -80,7 +80,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 20,
     image: 'assets/img/strawberry.png',
-    productType: ProductType.FRUITS,
+    productType: ProductType.FRUITS
   },
   {
     id: '10',
@@ -89,7 +89,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 39,
     image: 'assets/img/cantaloupe.png',
-    productType: ProductType.FRUITS,
+    productType: ProductType.FRUITS
   },
   {
     id: '11',
@@ -98,7 +98,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 39,
     image: 'assets/img/pepper.png',
-    productType: ProductType.VEGETABLES,
+    productType: ProductType.VEGETABLES
   },
   {
     id: '12',
@@ -107,7 +107,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 39,
     image: 'assets/img/broccoli.png',
-    productType: ProductType.VEGETABLES,
+    productType: ProductType.VEGETABLES
   },
   {
     id: '13',
@@ -116,7 +116,7 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 39,
     image: 'assets/img/cauliflower.png',
-    productType: ProductType.VEGETABLES,
+    productType: ProductType.VEGETABLES
   },
 
   {
@@ -126,6 +126,6 @@ export const productsMock: Product[] = [
     measurementUnit: 'Kg',
     availableStock: 39,
     image: 'assets/img/turnip.png',
-    productType: ProductType.TUBERCLES,
-  },
+    productType: ProductType.TUBERCLES
+  }
 ];

@@ -7,12 +7,12 @@ const routes = [
   { path: '', component: MainContentComponent },
   {
     path: 'products',
-    component: SelectProductsComponent,
-  },
+    component: SelectProductsComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class MainContentRoutingModule {}
