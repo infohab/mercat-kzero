@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Make your reservation</h1>
+  <hr />
+  <form class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your name</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Any employer</mat-label>
+      <mat-select>
+        <mat-option value="option">Jordi</mat-option>
+        <mat-option value="option">Manuel</mat-option>
+        <mat-option value="option">Alejandro</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Time</mat-label>
+      <input matInput type="date" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Date</mat-label>
+      <input matInput type="time" />
+    </mat-form-field>
+    <button class="submit" mat-stroked-button color="primary" type="submit" [routerLink]="['/reserveDetails']">
+      Enviar
+    </button>
+  </form>
+</div>

@@ -2,7 +2,7 @@
 <div>
   <div class="search-box">
     <mat-form-field appearance="fill">
-      <mat-label>Search here...</mat-label>
+      <mat-label (keyup.enter)="navigate()">Search here...</mat-label>
       <input matInput />
     </mat-form-field>
   </div>
