@@ -7,10 +7,11 @@ import { RouterModule } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReservationDetailsComponent } from '../reservation-details/reservation-details.component';
 
 @NgModule({
-  declarations: [ReservationComponent],
-  exports: [ReservationComponent],
+  declarations: [ReservationComponent, ReservationDetailsComponent],
+  exports: [ReservationComponent, ReservationDetailsComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
