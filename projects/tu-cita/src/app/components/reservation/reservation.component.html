@@ -3,11 +3,19 @@
   <form class="form" [formGroup]="reservationForm">
     <mat-form-field appearance="fill">
       <mat-label for="name">Enter your name</mat-label>
-      <input matInput formControlName="name" id="name" type="text" />
+      <input matInput formControlName="name" type="text" />
+      <mat-error *ngIf="name.hasError('required')">This field is required</mat-error>
+      <mat-error *ngIf="name.hasError('minlength')"
+        >Name should have min {{ name.errors.minlength.requiredLength }} characters</mat-error
+      >
+      <mat-error *ngIf="name.hasError('maxlength')"
+        >Name should have max {{ name.errors.maxlength.requiredLength }} characters</mat-error
+      >
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label for="serviceType">Type of Service</mat-label>
-      <mat-select formControlName="serviceType" id="serviceType" required>
+      <mat-select (selectionChange)="onServiceChange()" formControlName="serviceType">
         <mat-option value="option">Corte de Cabello</mat-option>
         <mat-option value="option">Afeitado</mat-option>
         <mat-option value="option">Tinte</mat-option>
@@ -18,20 +26,21 @@
 
     <mat-form-field appearance="fill">
       <mat-label for="employee">Any employee</mat-label>
-      <mat-select formControlName="employee" id="employee" required>
+      <mat-select (selectionChange)="onEmployeeChange()" formControlName="employee">
         <mat-option value="option">Jordi</mat-option>
         <mat-option value="option">Manuel</mat-option>
         <mat-option value="option">Alejandro</mat-option>
       </mat-select>
+      <mat-error *ngIf="employee.hasError('required')">This field is required!</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label for="date">Select Date</mat-label>
-      <input formControlName="date" id="date" required matInput type="date" />
+      <input (change)="onDateChange()" formControlName="date" matInput type="date" />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label for="time">Select Time</mat-label>
-      <input formControlName="time" id="time" equired matInput type="time" />
+      <input formControlName="time" equired matInput type="time" />
     </mat-form-field>
     <button
       class="submit"
@@ -41,7 +50,7 @@
       type="submit"
       [routerLink]="['/reservationDetails']"
     >
-      Enviar
+      Reservar
     </button>
   </form>
 </div>
