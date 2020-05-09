@@ -1,29 +1,46 @@
 <div class="container">
   <h1>Make your reservation</h1>
-  <hr />
-  <form class="form">
+  <form class="form" [formGroup]="reservationForm">
     <mat-form-field appearance="fill">
-      <mat-label>Enter your name</mat-label>
-      <input matInput />
+      <mat-label for="name">Enter your name</mat-label>
+      <input matInput formControlName="name" id="name" type="text" />
     </mat-form-field>
-    <br />
     <mat-form-field appearance="fill">
-      <mat-label>Any employer</mat-label>
-      <mat-select>
+      <mat-label for="serviceType">Type of Service</mat-label>
+      <mat-select formControlName="serviceType" id="serviceType" required>
+        <mat-option value="option">Corte de Cabello</mat-option>
+        <mat-option value="option">Afeitado</mat-option>
+        <mat-option value="option">Tinte</mat-option>
+        <mat-option value="option">Mechas</mat-option>
+        <mat-option value="option">Pack</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="employee">Any employee</mat-label>
+      <mat-select formControlName="employee" id="employee" required>
         <mat-option value="option">Jordi</mat-option>
         <mat-option value="option">Manuel</mat-option>
         <mat-option value="option">Alejandro</mat-option>
       </mat-select>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
-      <mat-label>Select Time</mat-label>
-      <input matInput type="date" />
+      <mat-label for="date">Select Date</mat-label>
+      <input formControlName="date" id="date" required matInput type="date" />
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Select Date</mat-label>
-      <input matInput type="time" />
+      <mat-label for="time">Select Time</mat-label>
+      <input formControlName="time" id="time" equired matInput type="time" />
     </mat-form-field>
-    <button class="submit" mat-stroked-button color="primary" type="submit" [routerLink]="['/reserveDetails']">
+    <button
+      class="submit"
+      [disabled]="reservationForm.invalid"
+      mat-stroked-button
+      color="primary"
+      type="submit"
+      [routerLink]="['/reservationDetails']"
+    >
       Enviar
     </button>
   </form>

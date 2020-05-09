@@ -39,7 +39,21 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
 
   // Move to service
   public selectedProducer;
-  public producers$ = of([]);
+  public producers$ = of([
+    {
+      id: '1',
+      displayName: 'La Boquería',
+      position: new google.maps.LatLng(41.3819571, 2.1719914),
+      location: 'Barcelona',
+      rating: 3,
+      products: {
+        id: '1',
+        name: 'Afeitado',
+        price: 15,
+        productType: 0
+      }
+    }
+  ]);
 
   public ngOnInit(): void {
     this.producers$.pipe(debounceTime(300), distinctUntilChanged()).subscribe((producers) => {
