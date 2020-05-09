@@ -12,6 +12,6 @@ export class MapViewComponent {
 
   public onMarkerClicked(event): void {
     console.log(event);
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/reservation');
   }
 }

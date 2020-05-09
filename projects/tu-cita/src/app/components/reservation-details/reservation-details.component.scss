@@ -1,0 +1,17 @@
+.reserve-card {
+  margin: 20px;
+  text-align: center;
+
+  .mat-card-actions {
+    padding: 0;
+    justify-content: center;
+    display: flex;
+    .mat-icon {
+      margin-top: 5px;
+      margin-right: 5px;
+    }
+  }
+  .add-reservation {
+    margin-top: 10px;
+  }
+}
