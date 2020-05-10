@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ConfirmationComponent } from './components/reservation/confirmation/confirmation.component';
+import { ReservationConfirmComponent } from './components/reservation/reservation-confirm/reservation-confirm.component';
 
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 import { ReservationDetailsComponent } from './components/reservation/reservation-details/reservation-details.component';
@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', component: MapViewComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'reservationDetails', component: ReservationDetailsComponent },
-  { path: 'confirmation', component: ConfirmationComponent },
+  { path: 'reservation-confirm', component: ReservationConfirmComponent },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];

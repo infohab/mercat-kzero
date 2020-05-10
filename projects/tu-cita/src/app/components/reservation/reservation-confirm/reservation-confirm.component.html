@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>
+  Summary
+</h1>
+
+<mat-dialog-content>
+  <p>Name: {{ data.name }}</p>
+  <p>Service: {{ data.service }}</p>
+  <p>Employer: {{ data.employee }}</p>
+  <p>Date: {{ data.date }}</p>
+  <p>Time: {{ data.time }}</p>
+
+  <mat-dialog-actions>
+    <button mat-icon-button>
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+    <p class="add-reservation">Add another reservation</p>
+    <button mat-raised-button mat-dialog-close mat-dialog-close="true">Confirm Reservation</button>
+  </mat-dialog-actions>
+</mat-dialog-content>

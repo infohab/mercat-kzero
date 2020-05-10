@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
 
 @Component({
   selector: 'app-reservation',
@@ -15,7 +17,21 @@ export class ReservationComponent {
     time: ['', Validators.required]
   });
 
-  public constructor(private formBuilder: FormBuilder) {}
+  public constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
+
+  saveReservation(formValues) {
+    console.log(formValues);
+    this.dialog.open(ReservationConfirmComponent, {
+      width: '300px',
+      data: {
+        name: formValues.name,
+        service: formValues.serviceType,
+        employee: formValues.employee,
+        date: formValues.date,
+        time: formValues.time
+      }
+    });
+  }
 
   public onServiceChange(): void {
     this.employee.setValue(null);

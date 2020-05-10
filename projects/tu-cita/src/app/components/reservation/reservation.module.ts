@@ -11,11 +11,12 @@ import { ReservationDetailsComponent } from './reservation-details/reservation-d
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { ConfirmationComponent } from '../reservation/confirmation/confirmation.component';
+import { ReservationConfirmComponent } from './reservation-confirm/reservation-confirm.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [ReservationComponent, ReservationDetailsComponent, ConfirmationComponent],
-  exports: [ReservationComponent, ReservationDetailsComponent, ConfirmationComponent],
+  declarations: [ReservationComponent, ReservationDetailsComponent, ReservationConfirmComponent],
+  exports: [ReservationComponent, ReservationDetailsComponent, ReservationConfirmComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -27,7 +28,8 @@ import { ConfirmationComponent } from '../reservation/confirmation/confirmation.
     ReactiveFormsModule,
     MatCardModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ]
 })
 export class ReservationModule {}
