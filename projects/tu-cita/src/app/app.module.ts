@@ -9,7 +9,7 @@ import { ReservationModule } from './components/reservation/reservation.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, MapViewModule, BrowserAnimationsModule, ReservationModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, MapViewModule, ReservationModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
