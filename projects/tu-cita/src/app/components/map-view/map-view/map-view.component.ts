@@ -10,8 +10,7 @@ import { Router } from '@angular/router';
 export class MapViewComponent {
   public constructor(private router: Router) {}
 
-  public onMarkerClicked(event): void {
-    console.log(event);
+  public onMarkerClicked(): void {
     this.router.navigateByUrl('/reservation');
   }
 }
