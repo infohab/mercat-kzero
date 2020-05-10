@@ -8,10 +8,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationDetailsComponent } from '../reservation-details/reservation-details.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
-  declarations: [ReservationComponent, ReservationDetailsComponent],
-  exports: [ReservationComponent, ReservationDetailsComponent],
+  declarations: [ReservationComponent, ReservationDetailsComponent, ConfirmationComponent],
+  exports: [ReservationComponent, ReservationDetailsComponent, ConfirmationComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
