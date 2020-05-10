@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ReservationComponent } from './components/reservation/reservation.component';
-import { ReservationDetailsComponent } from './components/reservation-details/reservation-details.component';
+import { ReservationComponent } from './components/reservation/reservation/reservation.component';
+import { ReservationDetailsComponent } from './components/reservation/reservation-details/reservation-details.component';
 import { MapViewComponent } from './map-view/map-view/map-view.component';
 
 const routes: Routes = [
