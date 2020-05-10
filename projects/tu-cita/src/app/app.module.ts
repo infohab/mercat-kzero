@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapViewModule } from './map-view/map-view.module';
+import { MapViewModule } from './components/map-view/map-view.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReservationModule } from './components/reservation/reservation.module';
-import { ConfirmationComponent } from './components/reservation/confirmation/confirmation.component';
 
 @NgModule({
-  declarations: [AppComponent, ConfirmationComponent],
-  imports: [BrowserModule, AppRoutingModule, MapViewModule, BrowserAnimationsModule, ReservationModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, MapViewModule, ReservationModule],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}
