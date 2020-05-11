@@ -4,11 +4,11 @@ h1 {
 
 .mat-dialog-actions {
   margin-bottom: 20px;
-  padding: 0;
   justify-content: center;
   display: flex;
 
-  .mat-icon {
-    margin-bottom: 15px;
+  button {
+    margin: 10px auto;
+    width: 180px;
   }
 }

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
+import { Router } from '@angular/router';
+import { ReservationService } from '../../../core/reservation/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -17,11 +19,17 @@ export class ReservationComponent {
     time: ['', Validators.required]
   });
 
-  public constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
+  public constructor(
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog,
+    private router: Router,
+    private reservationService: ReservationService
+  ) {}
 
   saveReservation(formValues) {
-    this.dialog.open(ReservationConfirmComponent, {
+    const dialogRef = this.dialog.open(ReservationConfirmComponent, {
       width: '300px',
+      height: '400px',
       data: {
         name: formValues.name,
         service: formValues.serviceType,
@@ -30,6 +38,14 @@ export class ReservationComponent {
         time: formValues.time
       }
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'true') {
+        this.router.navigate(['reservation-sumary']);
+      } else {
+        null;
+      }
+    });
+    this.reservationService.sendClient(formValues);
   }
 
   public onServiceChange(): void {
