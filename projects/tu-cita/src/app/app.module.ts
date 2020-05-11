@@ -10,6 +10,7 @@ import { ReservationModule } from './components/reservation/reservation.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, MapViewModule, ReservationModule],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}

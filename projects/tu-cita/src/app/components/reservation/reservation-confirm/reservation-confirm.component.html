@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>
+  Summary
+</h1>
+
+<mat-dialog-content>
+  <app-reservation-details [client]="data"></app-reservation-details>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button color="primary" mat-raised-button mat-dialog-close mat-dialog-close="true">Confirm Reservation</button>
+  <button color="accent" mat-raised-button mat-dialog-close mat-dialog-close="false">Cancel Reservation</button>
+</mat-dialog-actions>

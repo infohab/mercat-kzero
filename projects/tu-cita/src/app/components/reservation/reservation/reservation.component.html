@@ -16,20 +16,20 @@
     <mat-form-field appearance="fill">
       <mat-label for="serviceType">Type of Service</mat-label>
       <mat-select (selectionChange)="onServiceChange()" formControlName="serviceType">
-        <mat-option value="option">Corte de Cabello</mat-option>
-        <mat-option value="option">Afeitado</mat-option>
-        <mat-option value="option">Tinte</mat-option>
-        <mat-option value="option">Mechas</mat-option>
-        <mat-option value="option">Pack</mat-option>
+        <mat-option value="Corte de Cabello">Corte de Cabello</mat-option>
+        <mat-option value="Afeitado">Afeitado</mat-option>
+        <mat-option value="Tinte">Tinte</mat-option>
+        <mat-option value="Mechas">Mechas</mat-option>
+        <mat-option value="Pack">Pack</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label for="employee">Any employee</mat-label>
       <mat-select (selectionChange)="onEmployeeChange()" formControlName="employee">
-        <mat-option value="option">Jordi</mat-option>
-        <mat-option value="option">Manuel</mat-option>
-        <mat-option value="option">Alejandro</mat-option>
+        <mat-option value="Jordi">Jordi</mat-option>
+        <mat-option value="Manuel">Manuel</mat-option>
+        <mat-option value="Alejandro">Alejandro</mat-option>
       </mat-select>
       <mat-error *ngIf="employee.hasError('required')">This field is required!</mat-error>
     </mat-form-field>
@@ -43,12 +43,11 @@
       <input formControlName="time" equired matInput type="time" />
     </mat-form-field>
     <button
-      class="submit"
-      [disabled]="reservationForm.invalid"
+      class="button"
+      (click)="saveReservation(reservationForm.value)"
       mat-stroked-button
       color="primary"
       type="submit"
-      [routerLink]="['/reservationDetails']"
     >
       Reservar
     </button>

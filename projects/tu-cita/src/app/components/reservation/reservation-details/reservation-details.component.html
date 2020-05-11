@@ -1,23 +1,5 @@
-<mat-card class="reserve-card">
-  <h1>
-    Summary
-  </h1>
-
-  <hr />
-
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item> Name: Helen </mat-list-item>
-      <mat-list-item> Sex: woman </mat-list-item>
-      <mat-list-item> Service: Mechas </mat-list-item>
-      <mat-list-item> Employer: Cristina </mat-list-item>
-    </mat-list>
-    <hr />
-    <mat-card-actions>
-      <mat-icon>add_circle_outline</mat-icon>
-      <p class="add-reservation">Add another reservation</p>
-    </mat-card-actions>
-  </mat-card-content>
-
-  <button mat-raised-button>Confirm Reservation</button>
-</mat-card>
+<p>Name: {{ client.name }}</p>
+<p>Service: {{ client.service }}</p>
+<p>Employer: {{ client.employee }}</p>
+<p>Date: {{ client.date }}</p>
+<p>Time: {{ client.time }}</p>
