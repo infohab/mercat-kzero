@@ -2,17 +2,13 @@ h1 {
   text-align: center;
 }
 
-.mat-dialog-content {
-  height: 300px;
+.mat-dialog-actions {
+  margin-bottom: 20px;
+  padding: 0;
+  justify-content: center;
+  display: flex;
 
-  .mat-dialog-actions {
-    margin-top: 30px;
-    padding: 0;
-    justify-content: center;
-    display: flex;
-
-    .mat-icon {
-      margin-bottom: 15px;
-    }
+  .mat-icon {
+    margin-bottom: 15px;
   }
 }

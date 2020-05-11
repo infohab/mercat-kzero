@@ -27,9 +27,9 @@
     <mat-form-field appearance="fill">
       <mat-label for="employee">Any employee</mat-label>
       <mat-select (selectionChange)="onEmployeeChange()" formControlName="employee">
-        <mat-option value="jordi">Jordi</mat-option>
+        <mat-option value="Jordi">Jordi</mat-option>
         <mat-option value="Manuel">Manuel</mat-option>
-        <mat-option value="Alwjandro">Alejandro</mat-option>
+        <mat-option value="Alejandro">Alejandro</mat-option>
       </mat-select>
       <mat-error *ngIf="employee.hasError('required')">This field is required!</mat-error>
     </mat-form-field>
@@ -45,6 +45,7 @@
     <button
       class="button"
       (click)="saveReservation(reservationForm.value)"
+      [disabled]="reservationForm.invalid"
       mat-stroked-button
       color="primary"
       type="submit"

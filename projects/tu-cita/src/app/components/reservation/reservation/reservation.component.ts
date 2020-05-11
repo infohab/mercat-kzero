@@ -20,7 +20,6 @@ export class ReservationComponent {
   public constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
 
   saveReservation(formValues) {
-    console.log(formValues);
     this.dialog.open(ReservationConfirmComponent, {
       width: '300px',
       data: {
