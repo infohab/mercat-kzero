@@ -3,11 +3,7 @@
 </h1>
 
 <mat-dialog-content>
-  <p>Name: {{ data.name }}</p>
-  <p>Service: {{ data.service }}</p>
-  <p>Employer: {{ data.employee }}</p>
-  <p>Date: {{ data.date }}</p>
-  <p>Time: {{ data.time }}</p>
+  <app-reservation-details [client]="data"></app-reservation-details>
 </mat-dialog-content>
 
 <mat-dialog-actions>
