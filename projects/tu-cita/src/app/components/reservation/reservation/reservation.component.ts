@@ -50,7 +50,6 @@ export class ReservationComponent {
       data: reservationData
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
         this.reservationService.setReservation(reservationData);
         this.router.navigateByUrl('/reservation-summary');
