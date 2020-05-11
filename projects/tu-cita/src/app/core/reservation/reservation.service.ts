@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ReservationService {
   private subject = new Subject<any>();
 
-  sendClient(client) {
+  public sendClient(client): void {
     this.subject.next({ client });
   }
 
-  getClient(): Observable<any> {
+  public getClient(): Observable<any> {
     return this.subject.asObservable();
   }
 }
