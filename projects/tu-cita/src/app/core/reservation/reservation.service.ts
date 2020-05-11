@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Reservation } from './reservation.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
-  private subject = new Subject<any>();
+  private subject = new BehaviorSubject(null);
 
-  public sendClient(client): void {
-    this.subject.next({ client });
+  public setReservation(client): void {
+    this.subject.next(client);
   }
 
-  public getClient(): Observable<any> {
+  public getReservation(): Observable<Reservation> {
     return this.subject.asObservable();
   }
 }

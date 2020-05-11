@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
 import { Router } from '@angular/router';
 import { ReservationService } from '../../../core/reservation/reservation.service';
+import { Reservation } from '../../../core/reservation/reservation.interface';
 
 @Component({
   selector: 'app-reservation',
@@ -42,22 +43,19 @@ export class ReservationComponent {
     return this.reservationForm.get('time');
   }
 
-  public saveReservation(formValues): void {
+  public saveReservation(reservationData: Reservation): void {
     const dialogRef = this.dialog.open(ReservationConfirmComponent, {
       width: '300px',
       height: '400px',
-      data: {
-        name: formValues.name,
-        service: formValues.serviceType,
-        employee: formValues.employee,
-        date: formValues.date,
-        time: formValues.time
-      }
+      data: reservationData
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
+      if (result) {
+        this.reservationService.setReservation(reservationData);
+        this.router.navigateByUrl('/reservation-summary');
+      }
     });
-    this.reservationService.sendClient(formValues);
   }
 
   public onServiceChange(): void {

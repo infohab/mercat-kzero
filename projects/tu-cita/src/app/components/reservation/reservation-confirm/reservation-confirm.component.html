@@ -3,10 +3,10 @@
 </h1>
 
 <mat-dialog-content>
-  <app-reservation-details [client]="data"></app-reservation-details>
+  <app-reservation-details [reservation]="data"></app-reservation-details>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button color="primary" mat-dialog-close="true" mat-raised-button>Confirm Reservation</button>
-  <button color="accent" mat-dialog-close="false" mat-raised-button>Cancel Reservation</button>
+  <button mat-dialog-close mat-raised-button>Cancel Reservation</button>
+  <button color="primary" [mat-dialog-close]="true" mat-raised-button>Confirm Reservation</button>
 </mat-dialog-actions>

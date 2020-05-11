@@ -6,12 +6,14 @@ import { ReservationConfirmComponent } from './components/reservation/reservatio
 import { ReservationComponent } from './components/reservation/reservation/reservation.component';
 import { ReservationDetailsComponent } from './components/reservation/reservation-details/reservation-details.component';
 import { MapViewComponent } from './components/map-view/map-view/map-view.component';
+import { ReservationSummaryComponent } from './components/reservation/reservation-summary/reservation-summary.component';
 
 const routes: Routes = [
   { path: '', component: MapViewComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'reservationDetails', component: ReservationDetailsComponent },
   { path: 'reservation-confirm', component: ReservationConfirmComponent },
+  { path: 'reservation-summary', component: ReservationSummaryComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
