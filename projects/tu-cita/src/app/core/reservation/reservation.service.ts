@@ -6,13 +6,13 @@ import { Reservation } from './reservation.interface';
   providedIn: 'root'
 })
 export class ReservationService {
-  private subject = new BehaviorSubject(null);
+  private reservationSubject = new BehaviorSubject(null);
 
-  public setReservation(client): void {
-    this.subject.next(client);
+  public setReservation(reservationData): void {
+    this.reservationSubject.next(reservationData);
   }
 
   public getReservation(): Observable<Reservation> {
-    return this.subject.asObservable();
+    return this.reservationSubject.asObservable();
   }
 }

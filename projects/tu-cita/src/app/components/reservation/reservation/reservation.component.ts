@@ -49,8 +49,8 @@ export class ReservationComponent {
       height: '400px',
       data: reservationData
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
+    dialogRef.afterClosed().subscribe((saveReservation) => {
+      if (saveReservation) {
         this.reservationService.setReservation(reservationData);
         this.router.navigateByUrl('/reservation-summary');
       }
