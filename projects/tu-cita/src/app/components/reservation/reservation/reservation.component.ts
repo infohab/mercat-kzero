@@ -35,6 +35,10 @@ export class ReservationComponent {
     return this.reservationForm.get('employee');
   }
 
+  public get serviceType(): AbstractControl {
+    return this.reservationForm.get('serviceType');
+  }
+
   public get date(): AbstractControl {
     return this.reservationForm.get('date');
   }

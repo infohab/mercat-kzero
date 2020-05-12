@@ -22,6 +22,7 @@
         <mat-option value="Mechas">Mechas</mat-option>
         <mat-option value="Pack">Pack</mat-option>
       </mat-select>
+      <mat-error *ngIf="serviceType.hasError('required')">This field is required</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -37,11 +38,15 @@
     <mat-form-field appearance="fill">
       <mat-label for="date">Select Date</mat-label>
       <input (change)="onDateChange()" formControlName="date" matInput type="date" />
+      <mat-error *ngIf="date.hasError('required')">This field is required</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label for="time">Select Time</mat-label>
       <input formControlName="time" matInput type="time" />
+      <mat-error *ngIf="time.hasError('required')">This field is required</mat-error>
     </mat-form-field>
+
     <button
       (click)="saveReservation(reservationForm.value)"
       [disabled]="reservationForm.invalid"
