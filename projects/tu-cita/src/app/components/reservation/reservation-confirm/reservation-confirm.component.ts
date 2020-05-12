@@ -8,7 +8,5 @@ import { Reservation } from '../../../core/reservation/reservation.interface';
   styleUrls: ['./reservation-confirm.component.scss']
 })
 export class ReservationConfirmComponent {
-  public constructor(@Inject(MAT_DIALOG_DATA) public data: Reservation) {
-    console.log(data);
-  }
+  public constructor(@Inject(MAT_DIALOG_DATA) public data: Reservation) {}
 }
