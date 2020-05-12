@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Reservation } from '../../../core/reservation/reservation.interface';
 
 @Component({
   selector: 'app-reservation-details',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./reservation-details.component.scss']
 })
 export class ReservationDetailsComponent {
-  @Input() client: any;
+  @Input() public reservation: Reservation;
 }

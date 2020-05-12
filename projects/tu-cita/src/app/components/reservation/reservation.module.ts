@@ -13,18 +13,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationConfirmComponent } from './reservation-confirm/reservation-confirm.component';
-import { ReservationSumaryComponent } from './reservation-sumary/reservation-sumary.component';
-import { ReservationService } from '../../core/reservation/reservation.service';
+import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
 
 @NgModule({
   declarations: [
     ReservationComponent,
     ReservationDetailsComponent,
     ReservationConfirmComponent,
-    ReservationSumaryComponent
+    ReservationSummaryComponent
   ],
-  providers: [ReservationService],
-  exports: [ReservationComponent, ReservationDetailsComponent, ReservationConfirmComponent, ReservationSumaryComponent],
+  exports: [ReservationComponent, ReservationDetailsComponent, ReservationConfirmComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
 import { Router } from '@angular/router';
 import { ReservationService } from '../../../core/reservation/reservation.service';
+import { Reservation } from '../../../core/reservation/reservation.interface';
 
 @Component({
   selector: 'app-reservation',
@@ -12,40 +13,52 @@ import { ReservationService } from '../../../core/reservation/reservation.servic
 })
 export class ReservationComponent {
   public reservationForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
-    serviceType: ['', Validators.required],
-    employee: ['', Validators.required],
-    date: ['', Validators.required],
-    time: ['', Validators.required]
+    name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
+    serviceType: [null, Validators.required],
+    employee: [null, Validators.required],
+    date: [null, Validators.required],
+    time: [null, Validators.required]
   });
 
   public constructor(
     private formBuilder: FormBuilder,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     private router: Router,
     private reservationService: ReservationService
   ) {}
 
-  saveReservation(formValues) {
+  public get name(): AbstractControl {
+    return this.reservationForm.get('name');
+  }
+
+  public get employee(): AbstractControl {
+    return this.reservationForm.get('employee');
+  }
+
+  public get serviceType(): AbstractControl {
+    return this.reservationForm.get('serviceType');
+  }
+
+  public get date(): AbstractControl {
+    return this.reservationForm.get('date');
+  }
+
+  public get time(): AbstractControl {
+    return this.reservationForm.get('time');
+  }
+
+  public saveReservation(reservationData: Reservation): void {
     const dialogRef = this.dialog.open(ReservationConfirmComponent, {
-      width: '300px',
-      height: '400px',
-      data: {
-        name: formValues.name,
-        service: formValues.serviceType,
-        employee: formValues.employee,
-        date: formValues.date,
-        time: formValues.time
+      autoFocus: false,
+      disableClose: true,
+      data: reservationData
+    });
+    dialogRef.afterClosed().subscribe((saveReservation) => {
+      if (saveReservation) {
+        this.reservationService.setReservation(reservationData);
+        this.router.navigateByUrl('/reservation-summary');
       }
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'true') {
-        this.router.navigate(['reservation-sumary']);
-      } else {
-        null;
-      }
-    });
-    this.reservationService.sendClient(formValues);
   }
 
   public onServiceChange(): void {
@@ -61,21 +74,5 @@ export class ReservationComponent {
 
   public onDateChange(): void {
     this.time.setValue(null);
-  }
-
-  public get name() {
-    return this.reservationForm.get('name');
-  }
-
-  public get employee() {
-    return this.reservationForm.get('employee');
-  }
-
-  public get date() {
-    return this.reservationForm.get('date');
-  }
-
-  public get time() {
-    return this.reservationForm.get('time');
   }
 }

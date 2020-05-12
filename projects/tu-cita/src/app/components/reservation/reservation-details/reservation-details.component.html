@@ -1,5 +1,7 @@
-<p>Name: {{ client.name }}</p>
-<p>Service: {{ client.service }}</p>
-<p>Employer: {{ client.employee }}</p>
-<p>Date: {{ client.date }}</p>
-<p>Time: {{ client.time }}</p>
+<ng-container *ngIf="reservation">
+  <p><b>Name:</b> {{ reservation.name }}</p>
+  <p><b>Service:</b> {{ reservation.serviceType }}</p>
+  <p><b>Employer:</b> {{ reservation.employee }}</p>
+  <p><b>Date:</b> {{ reservation.date }}</p>
+  <p><b>Time:</b> {{ reservation.time }}</p>
+</ng-container>

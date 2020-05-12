@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="title">Congrats, your reservation is now confirmed!</h1>
+  <app-reservation-details [reservation]="reservationService.getReservation() | async"></app-reservation-details>
+  <div class="actions">
+    <a mat-button>
+      <mat-icon>event_available</mat-icon>
+      Add to calendar
+    </a>
+    <a mat-button routerLink="/reservation">
+      <mat-icon>add_circle</mat-icon>
+      Make another reservation
+    </a>
+  </div>
+</div>

@@ -1,16 +1,16 @@
 <div class="container">
-  <h1>Make your reservation</h1>
-  <form class="form" [formGroup]="reservationForm">
+  <h1>Enter your reservation details:</h1>
+  <form [formGroup]="reservationForm" class="form">
     <mat-form-field appearance="fill">
       <mat-label for="name">Enter your name</mat-label>
-      <input matInput formControlName="name" type="text" />
+      <input formControlName="name" matInput type="text" />
       <mat-error *ngIf="name.hasError('required')">This field is required</mat-error>
       <mat-error *ngIf="name.hasError('minlength')"
-        >Name should have min {{ name.errors.minlength.requiredLength }} characters</mat-error
-      >
+        >Name should have min {{ name.errors.minlength.requiredLength }} characters
+      </mat-error>
       <mat-error *ngIf="name.hasError('maxlength')"
-        >Name should have max {{ name.errors.maxlength.requiredLength }} characters</mat-error
-      >
+        >Name should have max {{ name.errors.maxlength.requiredLength }} characters
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -22,6 +22,7 @@
         <mat-option value="Mechas">Mechas</mat-option>
         <mat-option value="Pack">Pack</mat-option>
       </mat-select>
+      <mat-error *ngIf="serviceType.hasError('required')">This field is required</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -37,19 +38,24 @@
     <mat-form-field appearance="fill">
       <mat-label for="date">Select Date</mat-label>
       <input (change)="onDateChange()" formControlName="date" matInput type="date" />
+      <mat-error *ngIf="date.hasError('required')">This field is required</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label for="time">Select Time</mat-label>
-      <input formControlName="time" equired matInput type="time" />
+      <input formControlName="time" matInput type="time" />
+      <mat-error *ngIf="time.hasError('required')">This field is required</mat-error>
     </mat-form-field>
+
     <button
-      class="button"
       (click)="saveReservation(reservationForm.value)"
-      mat-stroked-button
+      [disabled]="reservationForm.invalid"
+      class="button"
       color="primary"
+      mat-raised-button
       type="submit"
     >
-      Reservar
+      Create reservation
     </button>
   </form>
 </div>
