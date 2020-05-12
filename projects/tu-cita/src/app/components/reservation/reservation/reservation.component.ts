@@ -45,8 +45,8 @@ export class ReservationComponent {
 
   public saveReservation(reservationData: Reservation): void {
     const dialogRef = this.dialog.open(ReservationConfirmComponent, {
-      width: '300px',
-      height: '400px',
+      autoFocus: false,
+      disableClose: true,
       data: reservationData
     });
     dialogRef.afterClosed().subscribe((saveReservation) => {
