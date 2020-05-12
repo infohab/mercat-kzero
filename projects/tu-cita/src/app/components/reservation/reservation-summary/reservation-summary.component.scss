@@ -16,6 +16,10 @@
 }
 
 .actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   a {
     padding: 0;
   }
