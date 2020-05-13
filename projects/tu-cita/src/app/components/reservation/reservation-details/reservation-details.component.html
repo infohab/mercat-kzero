@@ -1,7 +1,7 @@
 <ng-container *ngIf="reservation">
   <p><b>Name:</b> {{ reservation.name }}</p>
-  <p><b>Service:</b> {{ reservation.serviceType }}</p>
-  <p><b>Employer:</b> {{ reservation.employee }}</p>
-  <p><b>Date:</b> {{ reservation.date }}</p>
+  <p><b>Service:</b> {{ reservation.serviceType.displayName }}</p>
+  <p><b>Employee:</b> {{ reservation.employee.displayName }}</p>
+  <p><b>Date:</b> {{ getReadableDate(reservation.date) }}</p>
   <p><b>Time:</b> {{ getReadableTime(reservation.time) }}</p>
 </ng-container>

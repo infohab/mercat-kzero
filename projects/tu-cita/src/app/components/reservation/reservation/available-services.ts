@@ -1,8 +1,8 @@
 export const availableServices = [
-  { serviceCode: '001', displayName: 'Corte de Cabello Corto' },
-  { serviceCode: '002', displayName: 'Corte de Cabello Largo' },
-  { serviceCode: '003', displayName: 'Afeitado' },
-  { serviceCode: '004', displayName: 'Tinte' },
-  { serviceCode: '005', displayName: 'Mechas' },
-  { serviceCode: '006', displayName: 'Pack' }
+  { id: '001', displayName: 'Corte de Cabello Corto' },
+  { id: '002', displayName: 'Corte de Cabello Largo' },
+  { id: '003', displayName: 'Afeitado' },
+  { id: '004', displayName: 'Tinte' },
+  { id: '005', displayName: 'Mechas' },
+  { id: '006', displayName: 'Pack' }
 ];

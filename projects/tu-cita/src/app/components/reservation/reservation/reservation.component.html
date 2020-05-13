@@ -16,7 +16,7 @@
     <mat-form-field appearance="fill">
       <mat-label for="serviceType">Type of Service</mat-label>
       <mat-select (selectionChange)="onServiceChange()" formControlName="serviceType">
-        <mat-option *ngFor="let availableService of availableServices" [value]="availableService.serviceCode">
+        <mat-option *ngFor="let availableService of availableServices" [value]="availableService">
           {{ availableService.displayName }}
         </mat-option>
       </mat-select>
@@ -24,19 +24,19 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label for="employee">Any employee</mat-label>
+      <mat-label for="employee">Employee</mat-label>
       <mat-select (selectionChange)="onEmployeeChange()" formControlName="employee">
-        <mat-option value="Jordi">Jordi</mat-option>
-        <mat-option value="Manuel">Manuel</mat-option>
-        <mat-option value="Alejandro">Alejandro</mat-option>
+        <mat-option *ngFor="let availableEmployee of availableEmployees" [value]="availableEmployee">
+          {{ availableEmployee.displayName }}
+        </mat-option>
       </mat-select>
       <mat-error *ngIf="employee.hasError('required')">This field is required!</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Select Date</mat-label>
+      <mat-label>Date</mat-label>
       <input
-        (change)="onDateChange()"
+        (dateChange)="onDateChange()"
         [matDatepicker]="picker"
         [max]="maxDate"
         [min]="minDate"
@@ -49,7 +49,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Select Time</mat-label>
+      <mat-label>Time</mat-label>
       <mat-select formControlName="time">
         <mat-option *ngFor="let timeSlot of availableTimeSlots" [value]="timeSlot">{{
           getReadableTime(timeSlot)

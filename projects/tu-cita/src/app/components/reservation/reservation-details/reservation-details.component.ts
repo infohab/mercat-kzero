@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Reservation } from '../../../core/reservation/reservation.interface';
-import { getReadableTime } from '../../../shared/utils';
+import { getReadableDate, getReadableTime } from '../../../shared/utils';
 
 @Component({
   selector: 'app-reservation-details',
@@ -9,5 +9,6 @@ import { getReadableTime } from '../../../shared/utils';
 })
 export class ReservationDetailsComponent {
   public getReadableTime = getReadableTime;
+  public getReadableDate = getReadableDate;
   @Input() public reservation: Reservation;
 }
