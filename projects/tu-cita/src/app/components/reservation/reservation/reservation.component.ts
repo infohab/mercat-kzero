@@ -5,6 +5,12 @@ import { ReservationConfirmComponent } from '../reservation-confirm/reservation-
 import { Router } from '@angular/router';
 import { ReservationService } from '../../../core/reservation/reservation.service';
 import { Reservation } from '../../../core/reservation/reservation.interface';
+import { getReadableTime } from '../../../shared/utils';
+import * as moment from 'moment';
+import { availableServices } from './available-services';
+import { availableEmployees } from './available-employees';
+
+const ANY_EMPLOYEE_ID = '000';
 
 @Component({
   selector: 'app-reservation',
@@ -12,12 +18,19 @@ import { Reservation } from '../../../core/reservation/reservation.interface';
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent {
+  public getReadableTime = getReadableTime;
+  public minDate = moment().toDate();
+  public maxDate = moment().add(7, 'days').toDate();
+  public availableTimeSlots = [1589540400000, 1589541300000, 1589542200000, 1589543100000, 1589544000000];
+  public availableServices = availableServices;
+  public availableEmployees = availableEmployees;
+
   public reservationForm = this.formBuilder.group({
     name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
-    serviceType: [null, Validators.required],
-    employee: [null, Validators.required],
-    date: [null, Validators.required],
-    time: [null, Validators.required]
+    serviceType: [this.availableServices[2], Validators.required],
+    employee: [this.availableEmployees.find((employee) => employee.id === ANY_EMPLOYEE_ID), Validators.required],
+    date: [this.minDate, Validators.required],
+    time: [this.availableTimeSlots[0], Validators.required]
   });
 
   public constructor(
