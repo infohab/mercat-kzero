@@ -5,6 +5,7 @@ import { ReservationConfirmComponent } from '../reservation-confirm/reservation-
 import { Router } from '@angular/router';
 import { ReservationService } from '../../../core/reservation/reservation.service';
 import { Reservation } from '../../../core/reservation/reservation.interface';
+import { getReadableTime } from '../../../shared/utils';
 
 @Component({
   selector: 'app-reservation',
@@ -12,6 +13,7 @@ import { Reservation } from '../../../core/reservation/reservation.interface';
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent {
+  public getReadableTime = getReadableTime;
   public reservationForm = this.formBuilder.group({
     name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
     serviceType: [null, Validators.required],
@@ -19,6 +21,8 @@ export class ReservationComponent {
     date: [null, Validators.required],
     time: [null, Validators.required]
   });
+
+  public availableTimeSlots = [1589540400000, 1589541300000, 1589542200000, 1589543100000, 1589544000000];
 
   public constructor(
     private formBuilder: FormBuilder,

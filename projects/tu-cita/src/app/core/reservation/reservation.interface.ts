@@ -3,5 +3,5 @@ export interface Reservation {
   serviceType: string;
   employee: string;
   date: string;
-  time: string;
+  time: number;
 }
