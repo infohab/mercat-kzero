@@ -16,11 +16,9 @@
     <mat-form-field appearance="fill">
       <mat-label for="serviceType">Type of Service</mat-label>
       <mat-select (selectionChange)="onServiceChange()" formControlName="serviceType">
-        <mat-option value="Corte de Cabello">Corte de Cabello</mat-option>
-        <mat-option value="Afeitado">Afeitado</mat-option>
-        <mat-option value="Tinte">Tinte</mat-option>
-        <mat-option value="Mechas">Mechas</mat-option>
-        <mat-option value="Pack">Pack</mat-option>
+        <mat-option *ngFor="let availableService of availableServices" [value]="availableService.serviceCode">
+          {{ availableService.displayName }}
+        </mat-option>
       </mat-select>
       <mat-error *ngIf="serviceType.hasError('required')">This field is required</mat-error>
     </mat-form-field>
@@ -40,8 +38,8 @@
       <input
         (change)="onDateChange()"
         [matDatepicker]="picker"
-        [min]="minDate"
         [max]="maxDate"
+        [min]="minDate"
         formControlName="date"
         matInput
       />

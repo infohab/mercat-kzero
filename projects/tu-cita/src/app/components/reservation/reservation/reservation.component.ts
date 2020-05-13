@@ -7,6 +7,7 @@ import { ReservationService } from '../../../core/reservation/reservation.servic
 import { Reservation } from '../../../core/reservation/reservation.interface';
 import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
+import { availableServices } from './available-services';
 
 @Component({
   selector: 'app-reservation',
@@ -18,10 +19,11 @@ export class ReservationComponent {
   public minDate = moment().toDate();
   public maxDate = moment().add(7, 'days').toDate();
   public availableTimeSlots = [1589540400000, 1589541300000, 1589542200000, 1589543100000, 1589544000000];
+  public availableServices = availableServices;
 
   public reservationForm = this.formBuilder.group({
     name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
-    serviceType: [null, Validators.required],
+    serviceType: [this.availableServices[2].serviceCode, Validators.required],
     employee: [null, Validators.required],
     date: [this.minDate, Validators.required],
     time: [this.availableTimeSlots[0], Validators.required]
