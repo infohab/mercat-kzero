@@ -36,9 +36,18 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label for="date">Select Date</mat-label>
-      <input (change)="onDateChange()" formControlName="date" matInput type="date" />
+      <mat-label>Select Date</mat-label>
+      <input
+        (change)="onDateChange()"
+        [matDatepicker]="picker"
+        [min]="minDate"
+        [max]="maxDate"
+        formControlName="date"
+        matInput
+      />
       <mat-error *ngIf="date.hasError('required')">This field is required</mat-error>
+      <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="fill">

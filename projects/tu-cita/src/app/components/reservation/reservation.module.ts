@@ -14,6 +14,8 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { ReservationConfirmComponent } from './reservation-confirm/reservation-confirm.component';
 import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ReservationSummaryComponent } from './reservation-summary/reservation-s
     MatCardModule,
     MatListModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class ReservationModule {}
