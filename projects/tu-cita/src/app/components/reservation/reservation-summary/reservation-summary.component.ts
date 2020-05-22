@@ -12,8 +12,8 @@ export class ReservationSummaryComponent {
     const title = 'Corte de cabello en Montjuic';
     const description =
       'TuCita para corte de cabello en Montjuic. Recuerda seguirnos en todas las redes sociales y ganar descuentos invitando amigos a utilizar nuestra aplicación.';
-    const startDate = new Date(2020, 4, 22, 10, 45).toISOString().replace(/-|:|\.\d\d\d/g, '');
-    const endDate = new Date(2020, 4, 22, 11, 30).toISOString().replace(/-|:|\.\d\d\d/g, '');
+    const startDate = new Date().toISOString().replace(/-|:|\.\d\d\d/g, '');
+    const endDate = new Date().toISOString().replace(/-|:|\.\d\d\d/g, '');
     return `${baseCalendarUrl}&text=${title}&dates=${startDate}/${endDate}&details=${description}&sf=true&output=xml`;
   };
   constructor(public reservationService: ReservationService) {}
