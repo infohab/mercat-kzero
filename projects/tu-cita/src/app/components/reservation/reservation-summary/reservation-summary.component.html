@@ -2,7 +2,7 @@
   <h1 class="title">Congrats, your reservation is now confirmed!</h1>
   <app-reservation-details [reservation]="reservationService.getReservation() | async"></app-reservation-details>
   <div class="actions">
-    <a mat-button>
+    <a mat-button [href]="calendarLink()" target="_blank" rel="nofollow">
       <mat-icon>event_available</mat-icon>
       Add to calendar
     </a>
