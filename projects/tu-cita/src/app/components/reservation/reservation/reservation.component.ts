@@ -8,11 +8,8 @@ import { Reservation } from '../../../core/reservation/reservation.interface';
 import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
 import { availableServices } from './available-services';
-import { availableEmployees } from './available-employees';
 import { SiteStoreService } from '../../../core/site/site-store.service';
 import { tap } from 'rxjs/operators';
-
-const ANY_EMPLOYEE_ID = '000';
 
 @Component({
   selector: 'app-reservation',
@@ -25,14 +22,14 @@ export class ReservationComponent implements OnInit {
   public maxDate = moment().add(7, 'days').toDate();
   public availableTimeSlots = [1589540400000, 1589541300000, 1589542200000, 1589543100000, 1589544000000];
   public availableServices = availableServices;
-  public availableEmployees = availableEmployees;
+  public availableEmployees = [];
   public selectedSite$ = this.siteStoreService.selectedSite$;
 
   public reservationForm = this.formBuilder.group({
     place: [{ value: null, disabled: true }, Validators.required],
-    name: ['null', [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
-    serviceType: [this.availableServices[2], Validators.required],
-    employee: [this.availableEmployees.find((employee) => employee.id === ANY_EMPLOYEE_ID), Validators.required],
+    name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
+    serviceType: [null, Validators.required],
+    employee: [null, Validators.required],
     date: [this.minDate, Validators.required],
     time: [this.availableTimeSlots[0], Validators.required]
   });
@@ -65,7 +62,13 @@ export class ReservationComponent implements OnInit {
       .pipe(
         tap((site) => {
           if (site) {
-            this.place.patchValue(site.name);
+            this.availableServices = site.serviciosUnit;
+            this.availableEmployees = site.employees;
+            this.reservationForm.patchValue({
+              place: site.name,
+              serviceType: this.availableServices[0],
+              employee: this.availableEmployees[0]
+            });
           }
         })
       )
@@ -111,9 +114,13 @@ export class ReservationComponent implements OnInit {
   }
 
   public onServiceChange(): void {
-    this.employee.setValue(null);
-    this.date.setValue(null);
-    this.time.setValue(null);
+    if (
+      this.employee.value?.servicios &&
+      !this.employee.value.servicios?.some((d) => d.serviceTypeId === this.serviceType.value?.serviceTypeId)
+    ) {
+      this.employee.setValue(null);
+    }
+    this.onEmployeeChange();
   }
 
   public onEmployeeChange(): void {

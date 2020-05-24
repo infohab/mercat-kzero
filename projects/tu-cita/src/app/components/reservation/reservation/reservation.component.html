@@ -22,7 +22,7 @@
       <mat-label for="serviceType">Type of Service</mat-label>
       <mat-select (selectionChange)="onServiceChange()" formControlName="serviceType">
         <mat-option *ngFor="let availableService of availableServices" [value]="availableService">
-          {{ availableService.displayName }}
+          {{ availableService.serviceTypeId }}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="serviceType.hasError('required')">This field is required</mat-error>
@@ -32,7 +32,7 @@
       <mat-label for="employee">Employee</mat-label>
       <mat-select (selectionChange)="onEmployeeChange()" formControlName="employee">
         <mat-option *ngFor="let availableEmployee of availableEmployees" [value]="availableEmployee">
-          {{ availableEmployee.displayName }}
+          {{ availableEmployee.name }}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="employee.hasError('required')">This field is required!</mat-error>
