@@ -7,7 +7,6 @@ import { ReservationService } from '../../../core/reservation/reservation.servic
 import { Reservation } from '../../../core/reservation/reservation.interface';
 import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
-import { availableServices } from './available-services';
 import { SiteStoreService } from '../../../core/site/site-store.service';
 import { tap } from 'rxjs/operators';
 
@@ -21,7 +20,7 @@ export class ReservationComponent implements OnInit {
   public minDate = moment().toDate();
   public maxDate = moment().add(7, 'days').toDate();
   public availableTimeSlots = [1589540400000, 1589541300000, 1589542200000, 1589543100000, 1589544000000];
-  public availableServices = availableServices;
+  public availableServices = [];
   public availableEmployees = [];
   public selectedSite$ = this.siteStoreService.selectedSite$;
 
