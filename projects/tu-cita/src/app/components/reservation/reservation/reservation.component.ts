@@ -68,6 +68,8 @@ export class ReservationComponent implements OnInit {
               serviceType: this.availableServices[0],
               employee: this.availableEmployees[0]
             });
+          } else {
+            this.router.navigateByUrl('/');
           }
         })
       )
