@@ -17,6 +17,6 @@ export class MapViewComponent {
 
   public onMarkerClicked(site: Site): void {
     this.siteStoreService.selectedSite = site;
-    this.router.navigate(['/reservation', { site: site.id }]);
+    this.router.navigate(['/reservation'], { queryParams: { site: site.id } });
   }
 }

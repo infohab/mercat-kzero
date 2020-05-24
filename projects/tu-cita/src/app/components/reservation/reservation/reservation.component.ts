@@ -30,7 +30,7 @@ export class ReservationComponent implements OnInit {
 
   public reservationForm = this.formBuilder.group({
     place: [{ value: null, disabled: true }, Validators.required],
-    name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
+    name: ['null', [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
     serviceType: [this.availableServices[2], Validators.required],
     employee: [this.availableEmployees.find((employee) => employee.id === ANY_EMPLOYEE_ID), Validators.required],
     date: [this.minDate, Validators.required],
@@ -47,7 +47,7 @@ export class ReservationComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    const siteId = this.activeRoute.snapshot.params['site'];
+    const siteId = this.activeRoute.snapshot.queryParams['site'];
     if (this.siteStoreService.selectedSite) {
       this.place.patchValue(this.siteStoreService.selectedSite.name);
     } else if (this.siteStoreService.sites && siteId) {
@@ -64,7 +64,6 @@ export class ReservationComponent implements OnInit {
     this.siteStoreService.selectedSite$
       .pipe(
         tap((site) => {
-          console.log(site);
           if (site) {
             this.place.patchValue(site.name);
           }
@@ -105,8 +104,8 @@ export class ReservationComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((saveReservation) => {
       if (saveReservation) {
-        this.reservationService.setReservation(reservationData);
-        this.router.navigateByUrl('/reservation-summary');
+        this.reservationService.reservation = reservationData;
+        this.router.navigate(['/reservation-summary']);
       }
     });
   }
