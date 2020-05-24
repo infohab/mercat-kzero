@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { SiteStoreService } from '../../../core/unit/site-store.service';
 
 @Component({
   selector: 'app-map-view',
@@ -8,9 +9,12 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class MapViewComponent {
-  public constructor(private router: Router) {}
+  public sites$ = this.siteStoreService.sites$;
+  public constructor(private router: Router, private siteStoreService: SiteStoreService) {
+    this.siteStoreService.loadSites();
+  }
 
-  public onMarkerClicked(): void {
-    this.router.navigateByUrl('/reservation');
+  public onMarkerClicked(site: { id: string; position: { lat: number; lng: number } }): void {
+    this.router.navigateByUrl(`/reservation?site: ${site.id}`);
   }
 }

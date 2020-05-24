@@ -1,4 +1,4 @@
-<app-product-map (markerClicked)="onMarkerClicked()"></app-product-map>
+<app-product-map (markerClicked)="onMarkerClicked($event)" [data]="sites$ | async"></app-product-map>
 <div class="search-box">
   <mat-form-field appearance="fill">
     <mat-label>Search here...</mat-label>

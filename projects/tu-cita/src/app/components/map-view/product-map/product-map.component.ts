@@ -3,15 +3,14 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  OnInit,
   Output,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
+  Input,
+  OnChanges
 } from '@angular/core';
 import { google } from 'google-maps';
 import { mapStyles } from './map-styles';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { of } from 'rxjs';
 
 @Component({
   selector: 'app-product-map',
@@ -19,9 +18,17 @@ import { of } from 'rxjs';
   styleUrls: ['./product-map.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ProductMapComponent implements OnInit, AfterViewInit {
+export class ProductMapComponent implements OnChanges, AfterViewInit {
   @ViewChild('mapContainer', { static: false }) public gmap: ElementRef;
   @Output() public markerClicked = new EventEmitter();
+  @Input() public data = [
+    {
+      position: {
+        lat: 41.387124,
+        lng: 2.170037
+      }
+    }
+  ];
   private lat = 41.387124;
   private lng = 2.170037;
   private map: google.maps.Map;
@@ -35,36 +42,13 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
     mapTypeControl: false
   };
 
-  private producers = [];
-
-  // Move to service
-  public selectedProducer;
-  public producers$ = of([
-    {
-      id: '1',
-      displayName: 'La Boquería',
-      position: new google.maps.LatLng(41.3819571, 2.1719914),
-      location: 'Barcelona',
-      rating: 3,
-      products: {
-        id: '1',
-        name: 'Afeitado',
-        price: 15,
-        productType: 0
-      }
-    }
-  ]);
-
-  public ngOnInit(): void {
-    this.producers$.pipe(debounceTime(300), distinctUntilChanged()).subscribe((producers) => {
-      this.producers = producers || [];
-      this.addMarkers();
-    });
+  public ngOnChanges(): void {
+    this.addMarkers();
   }
 
   public ngAfterViewInit(): void {
     this.mapInitializer();
-    if (this.producers && this.producers.length) {
+    if (this.data && this.data.length) {
       this.addMarkers();
     }
   }
@@ -75,15 +59,15 @@ export class ProductMapComponent implements OnInit, AfterViewInit {
 
   private addMarkers(): void {
     const icon = 'assets/icons/map-pin.png';
-    this.producers.forEach((producer) => {
-      const marker = new google.maps.Marker({ ...producer, icon });
-      marker.addListener('click', () => this.onMarkerClick(producer));
+
+    this.data.forEach((site) => {
+      const marker = new google.maps.Marker({ ...site, icon });
+      marker.addListener('click', () => this.onMarkerClick(site));
       marker.setMap(this.map);
     });
   }
 
-  private onMarkerClick(producer): void {
-    this.selectedProducer = producer;
-    this.markerClicked.emit(producer);
+  private onMarkerClick(site): void {
+    this.markerClicked.emit(site);
   }
 }
