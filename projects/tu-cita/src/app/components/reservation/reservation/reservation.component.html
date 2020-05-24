@@ -2,6 +2,11 @@
   <h1>Enter your reservation details:</h1>
   <form [formGroup]="reservationForm" class="form">
     <mat-form-field appearance="fill">
+      <mat-label for="name">Place</mat-label>
+      <input formControlName="place" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
       <mat-label for="name">Enter your name</mat-label>
       <input formControlName="name" matInput type="text" />
       <mat-error *ngIf="name.hasError('required')">This field is required</mat-error>
@@ -59,7 +64,7 @@
     </mat-form-field>
 
     <button
-      (click)="saveReservation(reservationForm.value)"
+      (click)="saveReservation(reservationForm.getRawValue())"
       [disabled]="reservationForm.invalid"
       class="button"
       color="primary"

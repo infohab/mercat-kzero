@@ -9,6 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class SiteStoreService {
   private selectedSiteSubject = new BehaviorSubject(null);
+  public selectedSite$ = this.selectedSiteSubject.asObservable();
   private sitesSubject = new BehaviorSubject<Site[]>([]);
   public sites$ = this.sitesSubject.asObservable();
 
@@ -30,6 +31,13 @@ export class SiteStoreService {
     this.siteApiService
       .fetchSites()
       .pipe(tap((sites) => this.sitesSubject.next(sites)))
+      .subscribe();
+  }
+
+  public loadSiteById(id: string): void {
+    this.siteApiService
+      .fetchSiteById(id)
+      .pipe(tap((site) => this.selectedSiteSubject.next(site)))
       .subscribe();
   }
 }

@@ -3,6 +3,7 @@ import { Enterprise } from './enterprise.interface';
 import { ContactData } from './contact-data.interface';
 import { WorkingDay } from './working-day.interface';
 import { Employee } from './employee.interface';
+import { MapPosition } from './map-position.interface';
 
 export interface Site {
   id: string;
@@ -14,4 +15,5 @@ export interface Site {
   workingDays: WorkingDay[];
   serviciosUnit: Utility[];
   employees: Employee[];
+  position: MapPosition;
 }

@@ -1,4 +1,5 @@
 export interface Reservation {
+  place: string;
   name: string;
   serviceType: any;
   employee: any;
