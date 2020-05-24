@@ -9,7 +9,7 @@ import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
 import { availableServices } from './available-services';
 import { availableEmployees } from './available-employees';
-import { SiteStoreService } from '../../../core/unit/site-store.service';
+import { SiteStoreService } from '../../../core/site/site-store.service';
 import { tap } from 'rxjs/operators';
 
 const ANY_EMPLOYEE_ID = '000';

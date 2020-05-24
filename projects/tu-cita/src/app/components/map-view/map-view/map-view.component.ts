@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { SiteStoreService } from '../../../core/unit/site-store.service';
+import { SiteStoreService } from '../../../core/site/site-store.service';
 import { Site } from '../../../core/interfaces/site.interface';
 
 @Component({
