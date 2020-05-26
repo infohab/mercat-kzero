@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Site } from '../interfaces/site.interface';
-import { SiteApiSercice } from './site-api.service';
 import { tap } from 'rxjs/operators';
+import { Site } from '../../shared/interfaces/site.class';
+import { SiteApiService } from './site-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class SiteStoreService {
   private sitesSubject = new BehaviorSubject<Site[]>([]);
   public sites$ = this.sitesSubject.asObservable();
 
-  public constructor(private siteApiService: SiteApiSercice) {}
+  public constructor(private siteApiService: SiteApiService) {}
 
   public get sites(): Site[] {
     return this.sitesSubject.getValue();
@@ -29,14 +29,14 @@ export class SiteStoreService {
 
   public loadSites(): void {
     this.siteApiService
-      .fetchSites()
+      .getSites()
       .pipe(tap((sites) => this.sitesSubject.next(sites)))
       .subscribe();
   }
 
   public loadSiteById(id: string): void {
     this.siteApiService
-      .fetchSiteById(id)
+      .getSiteById(id)
       .pipe(tap((site) => this.selectedSiteSubject.next(site)))
       .subscribe();
   }

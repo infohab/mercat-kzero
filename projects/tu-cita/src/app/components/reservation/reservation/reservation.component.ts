@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
@@ -13,7 +13,8 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.scss']
+  styleUrls: ['./reservation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReservationComponent implements OnInit {
   public getReadableTime = getReadableTime;
@@ -61,8 +62,8 @@ export class ReservationComponent implements OnInit {
       .pipe(
         tap((site) => {
           if (site) {
-            this.availableServices = site.serviciosUnit;
-            this.availableEmployees = site.employees;
+            this.availableServices = site.serviciosOfUnit;
+            this.availableEmployees = site.resources;
             this.reservationForm.patchValue({
               place: site.name,
               serviceType: this.availableServices[0],

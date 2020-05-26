@@ -59,7 +59,6 @@ export class ProductMapComponent implements OnChanges, AfterViewInit {
 
   private addMarkers(): void {
     const icon = 'assets/icons/map-pin.png';
-
     this.data.forEach((site) => {
       const marker = new google.maps.Marker({ ...site, icon });
       marker.addListener('click', () => this.onMarkerClick(site));

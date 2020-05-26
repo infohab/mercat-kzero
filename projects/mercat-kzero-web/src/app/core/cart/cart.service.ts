@@ -17,7 +17,7 @@ export class CartService {
   public totalAmount = new BehaviorSubject(0);
   public onItemRemoved = new Subject<CartItem>();
 
-  public updateCart(productToUpdate: Product, amount: number) {
+  public updateCart(productToUpdate: Product, amount: number): void {
     const cartItem = this.isActiveOnCart(productToUpdate);
     if (cartItem) {
       this.updateAmount(cartItem, amount);

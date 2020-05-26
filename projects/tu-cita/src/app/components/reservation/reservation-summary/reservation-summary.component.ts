@@ -13,7 +13,7 @@ export class ReservationSummaryComponent implements OnInit {
   private reservation = this.reservationService.reservation;
   public calendarLink = (): string => {
     const baseCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
-    const title = `${this.reservation?.serviceType?.serviceTypeId} at ${this.reservation?.place}`;
+    const title = `${this.reservation?.serviceType?.serviceName} at ${this.reservation?.place}`;
     const description = `Recordatorio de cita para ${title}. Recuerda seguirnos en todas las redes sociales y ganar descuentos invitando amigos a utilizar nuestra aplicación.`;
     const startDate = new Date().toISOString().replace(/-|:|\.\d\d\d/g, '');
     const endDate = new Date().toISOString().replace(/-|:|\.\d\d\d/g, '');

@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { SiteStoreService } from '../../../core/site/site-store.service';
-import { Site } from '../../../core/interfaces/site.interface';
+import { Site } from '../../../shared/interfaces/site.class';
 
 @Component({
   selector: 'app-map-view',

@@ -1,11 +1,11 @@
-import { Utility } from './utility.interface';
+import { ServiciosOfUnit } from './servicios-of-unit.interface';
 import { Enterprise } from './enterprise.interface';
 import { ContactData } from './contact-data.interface';
 import { WorkingDay } from './working-day.interface';
-import { Employee } from './employee.interface';
-import { MapPosition } from './map-position.interface';
+import { Resource } from './resource.interface';
+import { GeoCoordinate } from './geo-coordinate.interface';
 
-export interface Site {
+export interface Unit {
   id: string;
   name: string;
   displayName: string;
@@ -13,7 +13,7 @@ export interface Site {
   enterprise: Enterprise;
   contactData: ContactData;
   workingDays: WorkingDay[];
-  serviciosUnit: Utility[];
-  employees: Employee[];
-  position: MapPosition;
+  serviciosOfUnit: ServiciosOfUnit[];
+  resources: Resource[];
+  geoCoordinate: GeoCoordinate;
 }
