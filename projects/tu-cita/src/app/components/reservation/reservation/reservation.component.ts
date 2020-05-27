@@ -8,7 +8,7 @@ import { Reservation } from '../../../core/reservation/reservation.interface';
 import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
 import { SiteStoreService } from '../../../core/site/site-store.service';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-reservation',
@@ -47,7 +47,7 @@ export class ReservationComponent implements OnInit {
     const siteId = this.activeRoute.snapshot.queryParams['site'];
     if (this.siteStoreService.selectedSite) {
       this.place.patchValue(this.siteStoreService.selectedSite.name);
-    } else if (this.siteStoreService.sites && siteId) {
+    } else if (this.siteStoreService.sites || siteId) {
       const site = this.siteStoreService.sites.find((site) => site.id === siteId);
       if (site) {
         this.siteStoreService.selectedSite = site;
@@ -60,6 +60,7 @@ export class ReservationComponent implements OnInit {
 
     this.siteStoreService.selectedSite$
       .pipe(
+        catchError(() => this.handleError),
         tap((site) => {
           if (site) {
             this.availableServices = site.serviciosOfUnit;
@@ -69,8 +70,6 @@ export class ReservationComponent implements OnInit {
               serviceType: this.availableServices[0],
               employee: this.availableEmployees[0]
             });
-          } else {
-            this.router.navigateByUrl('/');
           }
         })
       )
@@ -132,5 +131,9 @@ export class ReservationComponent implements OnInit {
 
   public onDateChange(): void {
     this.time.setValue(null);
+  }
+
+  public handleError(): void {
+    this.router.navigateByUrl('/');
   }
 }
