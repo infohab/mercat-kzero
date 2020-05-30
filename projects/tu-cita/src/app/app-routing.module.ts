@@ -14,6 +14,10 @@ const routes: Routes = [
   { path: 'reservationDetails', component: ReservationDetailsComponent },
   { path: 'reservation-confirm', component: ReservationConfirmComponent },
   { path: 'reservation-summary', component: ReservationSummaryComponent },
+  {
+    path: 'back-office',
+    loadChildren: () => import('./components/back-office/back-office.module').then((module) => module.BackOfficeModule)
+  },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

@@ -4,6 +4,7 @@ import { BusinessDetailsComponent } from './business-details/business-details.co
 import { BusinessEmployeesComponent } from './business-employees/business-employees.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { TimeAvailabilityComponent } from './time-availability/time-availability.component';
+import { BackOfficeRoutingModule } from './back-office.routing.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,6 @@ import { TimeAvailabilityComponent } from './time-availability/time-availability
     EmployeeDetailsComponent,
     TimeAvailabilityComponent
   ],
-  imports: [CommonModule]
+  imports: [CommonModule, BackOfficeRoutingModule]
 })
 export class BackOfficeModule {}
