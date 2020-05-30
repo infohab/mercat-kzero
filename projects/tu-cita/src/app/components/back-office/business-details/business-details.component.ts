@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl, MinLengthValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-business-details',
@@ -8,9 +8,9 @@ import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 })
 export class BusinessDetailsComponent {
   public businessDetailsForm = this.formBuilder.group({
-    contactName: [null, [Validators.required, Validators.minLength(3)]],
-    contactEmail: [null, Validators.required],
-    serviceUnitName: [null, Validators.required],
+    contactName: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+    contactEmail: [null, [Validators.required, Validators.email]],
+    serviceUnitName: [null, [Validators.required, Validators.minLength(3)]],
     address: [null, Validators.required],
     phone: [null, Validators.required],
     serviceType: [null, Validators.required],
@@ -18,6 +18,10 @@ export class BusinessDetailsComponent {
   });
 
   public constructor(private formBuilder: FormBuilder) {}
+
+  saveData() {
+    console.log(this.businessDetailsForm.value);
+  }
 
   public get contactName(): AbstractControl {
     return this.businessDetailsForm.get('contactName');
