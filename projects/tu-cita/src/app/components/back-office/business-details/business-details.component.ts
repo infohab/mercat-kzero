@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators, AbstractControl, MinLengthValidator } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-business-details',
