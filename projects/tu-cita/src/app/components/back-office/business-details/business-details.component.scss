@@ -1,0 +1,21 @@
+.container {
+  padding: 36px;
+  max-width: 350px;
+  margin: 0 auto;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin: 18px auto;
+  }
+  .service-features {
+    display: flex;
+    justify-content: space-between;
+    .typeService {
+      width: 45%;
+    }
+    .duration {
+      width: 45%;
+    }
+  }
+}

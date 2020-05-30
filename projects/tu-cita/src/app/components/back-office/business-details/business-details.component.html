@@ -1,2 +1,41 @@
-<p>business-details works!</p>
-<h1>bussines</h1>
+<div class="container">
+  <h1>Business details:</h1>
+  <form [formGroup]="businessDetailsForm" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label for="contactName">Contact Name</mat-label>
+      <input formControlName="contactName" matInput type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="email">Contact Email</mat-label>
+      <input formControlName="contactEmail" matInput type="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="serviceUnitName">Service Unit Name</mat-label>
+      <input formControlName="serviceUnitName" matInput type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="Address"> Address</mat-label>
+      <input formControlName="address" matInput type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="phone"> Phone Number</mat-label>
+      <input formControlName="phone" matInput type="number" />
+    </mat-form-field>
+
+    <div class="service-features">
+      <mat-form-field appearance="fill" class="typeService">
+        <mat-label>Service Type</mat-label>
+        <mat-select formControlName="serviceType">
+          <mat-option value="corte de pelo">Corte de Pelo</mat-option>
+          <mat-option value="afeitado">Afeitado</mat-option>
+          <mat-option value="tinte">Tinte</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="duration">
+        <mat-label for="duration"> Duration</mat-label>
+        <input formControlName="duration" matInput type="number" />
+      </mat-form-field>
+    </div>
+    <button type="submit" mat-stroked-button color="primary">Next</button>
+  </form>
+</div>
