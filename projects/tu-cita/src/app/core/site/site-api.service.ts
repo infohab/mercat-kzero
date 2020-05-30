@@ -6,10 +6,6 @@ import { Unit } from '../interfaces/unit.interface';
 import { map } from 'rxjs/operators';
 import { Site } from '../../shared/interfaces/site.class';
 
-export function hardCodePositionToSite(site: Unit): Unit {
-  return site;
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +29,6 @@ export class SiteApiService {
   }
 
   private fetchSiteById(siteId: string): Observable<Unit> {
-    return this.httpClient.get<Unit>(`${environment.apiUrl}/units/${siteId}`).pipe(map(hardCodePositionToSite));
+    return this.httpClient.get<Unit>(`${environment.apiUrl}/units/${siteId}`);
   }
 }

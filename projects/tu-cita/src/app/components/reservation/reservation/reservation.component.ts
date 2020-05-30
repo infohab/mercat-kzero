@@ -116,7 +116,11 @@ export class ReservationComponent implements OnInit {
     dialogRef.afterClosed().subscribe((saveReservation) => {
       if (saveReservation) {
         this.reservationService.reservation = reservationData;
-        this.router.navigate(['/reservation-summary']);
+
+        this.reservationService
+          .bookReservation(reservationData)
+          .pipe(tap(() => this.router.navigate(['/reservation-summary'])))
+          .subscribe();
       }
     });
   }
