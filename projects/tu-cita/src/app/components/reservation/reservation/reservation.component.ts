@@ -9,6 +9,8 @@ import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
 import { SiteStoreService } from '../../../core/site/site-store.service';
 import { tap, catchError } from 'rxjs/operators';
+import { WorkingDay } from '../../../shared/interfaces/working-day.class';
+import { WorkingSegment } from '../../../shared/interfaces/working-segment.class';
 
 @Component({
   selector: 'app-reservation',
@@ -20,18 +22,23 @@ export class ReservationComponent implements OnInit {
   public getReadableTime = getReadableTime;
   public minDate = moment().toDate();
   public maxDate = moment().add(7, 'days').toDate();
-  public availableTimeSlots = [1589540400000, 1589541300000, 1589542200000, 1589543100000, 1589544000000];
+  public workingDays = [];
+  public availableTimeSlots = [];
   public availableServices = [];
   public availableEmployees = [];
   public selectedSite$ = this.siteStoreService.selectedSite$;
+  public availableDateFilter = (date: Date | null): boolean => {
+    const day = (date || new Date()).getDay();
+    return (this.workingDays || [1, 2]).includes(day);
+  };
 
   public reservationForm = this.formBuilder.group({
     place: [{ value: null, disabled: true }, Validators.required],
     name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
     serviceType: [null, Validators.required],
-    employee: [null, Validators.required],
-    date: [this.minDate, Validators.required],
-    time: [this.availableTimeSlots[0], Validators.required]
+    employee: [''],
+    date: [null, Validators.required],
+    time: [null, Validators.required]
   });
 
   public constructor(
@@ -65,10 +72,10 @@ export class ReservationComponent implements OnInit {
           if (site) {
             this.availableServices = site.serviciosOfUnit;
             this.availableEmployees = site.resources;
+            this.workingDays = site.workingDays.map((d) => d.dayOfWeek);
             this.reservationForm.patchValue({
               place: site.name,
-              serviceType: this.availableServices[0],
-              employee: this.availableEmployees[0]
+              serviceType: this.availableServices[0]
             });
           }
         })
@@ -109,7 +116,11 @@ export class ReservationComponent implements OnInit {
     dialogRef.afterClosed().subscribe((saveReservation) => {
       if (saveReservation) {
         this.reservationService.reservation = reservationData;
-        this.router.navigate(['/reservation-summary']);
+
+        this.reservationService
+          .bookReservation(reservationData)
+          .pipe(tap(() => this.router.navigate(['/reservation-summary'])))
+          .subscribe();
       }
     });
   }
@@ -129,11 +140,33 @@ export class ReservationComponent implements OnInit {
     this.time.setValue(null);
   }
 
-  public onDateChange(): void {
-    this.time.setValue(null);
+  public onDateChange({ target }): void {
+    this.time.patchValue(null);
+    const date = moment(target.value);
+    const mappedToMoment = this.getWorkingSegmentFromDay(date.day()).map(this.parseSegmentToMoment);
+    this.availableTimeSlots = this.flatDeep(mappedToMoment);
   }
 
   public handleError(): void {
     this.router.navigateByUrl('/');
+  }
+
+  private getWorkingSegmentFromDay(day: number): WorkingSegment[] {
+    const workingDay = this.findWorkingDay(day);
+    return workingDay.workingSegments;
+  }
+
+  private findWorkingDay(day: number): WorkingDay {
+    return this.siteStoreService.selectedSite.workingDays.find((w) => w.dayOfWeek === day);
+  }
+
+  private parseSegmentToMoment({ startTime, endTime }): moment.Moment[] {
+    return [moment().set(startTime), moment().set(endTime)];
+  }
+
+  private flatDeep(array, deep = 1): moment.Moment[] {
+    return deep > 0
+      ? array.reduce((acc, val) => acc.concat(Array.isArray(val) ? this.flatDeep(val, deep - 1) : val), [])
+      : array.slice();
   }
 }
