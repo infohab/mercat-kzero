@@ -20,17 +20,22 @@ export class ReservationComponent implements OnInit {
   public getReadableTime = getReadableTime;
   public minDate = moment().toDate();
   public maxDate = moment().add(7, 'days').toDate();
+  public workingDays = [];
   public availableTimeSlots = [1589540400000, 1589541300000, 1589542200000, 1589543100000, 1589544000000];
   public availableServices = [];
   public availableEmployees = [];
   public selectedSite$ = this.siteStoreService.selectedSite$;
+  public availableDateFilter = (date: Date | null): boolean => {
+    const day = (date || new Date()).getDay();
+    return (this.workingDays || [1, 2]).includes(day);
+  };
 
   public reservationForm = this.formBuilder.group({
     place: [{ value: null, disabled: true }, Validators.required],
     name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
     serviceType: [null, Validators.required],
     employee: [''],
-    date: [this.minDate, Validators.required],
+    date: [null, Validators.required],
     time: [this.availableTimeSlots[0], Validators.required]
   });
 
@@ -65,6 +70,7 @@ export class ReservationComponent implements OnInit {
           if (site) {
             this.availableServices = site.serviciosOfUnit;
             this.availableEmployees = site.resources;
+            this.workingDays = site.workingDays.map((d) => d.dayOfWeek);
             this.reservationForm.patchValue({
               place: site.name,
               serviceType: this.availableServices[0]
