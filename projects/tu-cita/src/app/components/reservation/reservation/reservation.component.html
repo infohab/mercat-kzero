@@ -31,6 +31,7 @@
     <mat-form-field appearance="fill">
       <mat-label for="employee">Employee</mat-label>
       <mat-select (selectionChange)="onEmployeeChange()" formControlName="employee">
+        <mat-option value="">Any Employee</mat-option>
         <mat-option *ngFor="let availableEmployee of availableEmployees" [value]="availableEmployee">
           {{ availableEmployee.name }}
         </mat-option>

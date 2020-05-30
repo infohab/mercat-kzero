@@ -29,7 +29,7 @@ export class ReservationComponent implements OnInit {
     place: [{ value: null, disabled: true }, Validators.required],
     name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
     serviceType: [null, Validators.required],
-    employee: [null, Validators.required],
+    employee: [''],
     date: [this.minDate, Validators.required],
     time: [this.availableTimeSlots[0], Validators.required]
   });
@@ -67,8 +67,7 @@ export class ReservationComponent implements OnInit {
             this.availableEmployees = site.resources;
             this.reservationForm.patchValue({
               place: site.name,
-              serviceType: this.availableServices[0],
-              employee: this.availableEmployees[0]
+              serviceType: this.availableServices[0]
             });
           }
         })
