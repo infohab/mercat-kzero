@@ -8,7 +8,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label for="name">Enter your name</mat-label>
-      <input formControlName="name" matInput type="text" />
+      <input formControlName="clientName" matInput type="text" />
       <mat-error *ngIf="name.hasError('required')">This field is required</mat-error>
       <mat-error *ngIf="name.hasError('minlength')"
         >Name should have min {{ name.errors.minlength.requiredLength }} characters

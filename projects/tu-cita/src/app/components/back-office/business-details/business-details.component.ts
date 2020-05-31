@@ -19,7 +19,7 @@ export class BusinessDetailsComponent {
 
   public constructor(private formBuilder: FormBuilder) {}
 
-  saveData() {
+  public saveData(): void {
     console.log(this.businessDetailsForm.value);
   }
 

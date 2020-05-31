@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Reservation } from '../../../core/reservation/reservation.interface';
 import { getReadableDate, getReadableTime } from '../../../shared/utils';
+import { Reservation } from '../../../shared/interfaces/reservation.class';
 
 @Component({
   selector: 'app-reservation-details',
