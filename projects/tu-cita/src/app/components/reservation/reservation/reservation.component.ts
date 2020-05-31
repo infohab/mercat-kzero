@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ReservationService } from '../../../core/reservation/reservation.service';
+import { ReservationStoreService } from '../../../core/reservation/reservation-store.service';
 import { Reservation } from '../../../core/reservation/reservation.interface';
 import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
@@ -46,7 +46,7 @@ export class ReservationComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private reservationService: ReservationService,
+    private reservationService: ReservationStoreService,
     private siteStoreService: SiteStoreService
   ) {}
 

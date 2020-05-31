@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReservationService } from '../../../core/reservation/reservation.service';
+import { ReservationStoreService } from '../../../core/reservation/reservation-store.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { SiteStoreService } from '../../../core/site/site-store.service';
@@ -20,7 +20,7 @@ export class ReservationSummaryComponent implements OnInit {
     return `${baseCalendarUrl}&text=${title}&dates=${startDate}/${endDate}&details=${description}&sf=true&output=xml`;
   };
   constructor(
-    public reservationService: ReservationService,
+    public reservationService: ReservationStoreService,
     private router: Router,
     private siteStoreService: SiteStoreService
   ) {}

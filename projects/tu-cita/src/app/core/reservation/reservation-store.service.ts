@@ -6,7 +6,7 @@ import { ReservationApiService } from './reservation-api.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ReservationService {
+export class ReservationStoreService {
   private reservationSubject = new BehaviorSubject(null);
   public reservation$ = this.reservationSubject.asObservable();
 
