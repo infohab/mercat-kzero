@@ -1,1 +1,62 @@
-<p>business-details works!</p>
+<div class="container">
+  <h1>Business details:</h1>
+  <form [formGroup]="businessDetailsForm" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label for="contactName">Contact Name</mat-label>
+      <input formControlName="contactName" matInput type="text" />
+      <mat-error *ngIf="contactName.hasError('required')">Contact name is required</mat-error>
+      <mat-error *ngIf="contactName.hasError('minlength')">Contact name should have at least 3 characters</mat-error>
+      <mat-error *ngIf="contactName.hasError('maxlength')">Contact name should have less than 30 characters</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="email">Contact Email</mat-label>
+      <input formControlName="contactEmail" matInput type="email" />
+      <mat-error *ngIf="contactEmail.hasError('required')">Contact email is required</mat-error>
+      <mat-error *ngIf="contactEmail.hasError('email')">Email must be valid</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="serviceUnitName">Service Unit Name</mat-label>
+      <input formControlName="serviceUnitName" matInput type="text" />
+      <mat-error *ngIf="serviceUnitName.hasError('required')">Service Unit Name is required</mat-error>
+      <mat-error *ngIf="serviceUnitName.hasError('minlength')"
+        >Service Unit Name should have at least 3 characters</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="Address"> Address</mat-label>
+      <input formControlName="address" matInput type="text" />
+      <mat-error *ngIf="address.hasError('required')">Address is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="phone"> Phone Number</mat-label>
+      <input formControlName="phone" matInput type="number" />
+      <mat-error *ngIf="phone.hasError('required')">Phone Number is required</mat-error>
+    </mat-form-field>
+
+    <div class="service-features">
+      <mat-form-field appearance="fill" class="typeService">
+        <mat-label>Service Type</mat-label>
+        <mat-select formControlName="serviceType">
+          <mat-option value="corte de pelo">Corte de Pelo</mat-option>
+          <mat-option value="afeitado">Afeitado</mat-option>
+          <mat-option value="tinte">Tinte</mat-option>
+        </mat-select>
+        <mat-error *ngIf="serviceType.hasError('required')">Service Type is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="duration">
+        <mat-label for="duration">Minutes Duration</mat-label>
+        <input formControlName="duration" matInput type="number" />
+        <mat-error *ngIf="duration.hasError('required')">Duration is required</mat-error>
+      </mat-form-field>
+    </div>
+    <button
+      type="submit"
+      (click)="saveData()"
+      [disabled]="businessDetailsForm.invalid"
+      mat-raised-button
+      color="primary"
+    >
+      Next
+    </button>
+  </form>
+</div>

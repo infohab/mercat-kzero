@@ -7,6 +7,7 @@ import { MapViewModule } from './components/map-view/map-view.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReservationModule } from './components/reservation/reservation.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BackOfficeModule } from './components/back-office/back-office.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     MapViewModule,
-    ReservationModule
+    ReservationModule,
+    BackOfficeModule
   ],
 
   bootstrap: [AppComponent]
