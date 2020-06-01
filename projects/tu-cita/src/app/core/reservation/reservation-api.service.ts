@@ -28,7 +28,7 @@ export class ReservationApiService {
     return this.httpClient.get<ReservationApi[]>(`${environment.apiUrl}/reservations`);
   }
 
-  public fetchReservations(): Observable<any> {
-    return this.httpClient.get<any>(`${environment.apiUrl}/reservations`);
-  }
+  // public fetchReservations(): Observable<any> {
+  //   return this.httpClient.get<any>(`${environment.apiUrl}/reservations`);
+  // }
 }
