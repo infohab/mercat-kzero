@@ -1,6 +1,6 @@
 <ng-container *ngIf="reservation">
   <p><b>Place:</b> {{ reservation.place }}</p>
-  <p><b>Name:</b> {{ reservation.name }}</p>
+  <p><b>Name:</b> {{ reservation.clientName }}</p>
   <p><b>Service:</b> {{ reservation.serviceType.serviceName }}</p>
   <p *ngIf="reservation.employee.name"><b>Employee:</b> {{ reservation.employee.name }}</p>
   <p><b>Date:</b> {{ getReadableDate(reservation.date) }}</p>

@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Reservation } from '../../../core/reservation/reservation.interface';
+import { Reservation } from '../../../shared/interfaces/reservation.class';
 
 @Component({
   selector: 'app-reservation-confirm',

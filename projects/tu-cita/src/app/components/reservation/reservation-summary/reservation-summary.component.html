@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="title">Congrats, your reservation is now confirmed!</h1>
-  <app-reservation-details [reservation]="reservationService.reservation$ | async"></app-reservation-details>
+  <app-reservation-details [reservation]="reservationStoreService.reservation$ | async"></app-reservation-details>
   <div class="actions">
     <a mat-button [href]="calendarLink()" target="_blank" rel="nofollow">
       <mat-icon>event_available</mat-icon>

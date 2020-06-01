@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { Reservation } from './reservation.interface';
+
 import { ReservationApiService } from './reservation-api.service';
+import { tap } from 'rxjs/operators';
+import { Reservation } from '../../shared/interfaces/reservation.class';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class ReservationStoreService {
   private reservationSubject = new BehaviorSubject(null);
   public reservation$ = this.reservationSubject.asObservable();
 
-  public reservationsSubject = new BehaviorSubject<Reservation[]>([]);
-  public reservations$ = this.reservationsSubject.asObservable();
+  private reservationListSubject = new BehaviorSubject([]);
+  public reservationList$ = this.reservationListSubject.asObservable();
 
   public constructor(private reservationApiService: ReservationApiService) {}
 
@@ -28,11 +29,10 @@ export class ReservationStoreService {
     return this.reservationApiService.bookReservation(reservation);
   }
 
-  public get reservations(): Reservation[] {
-    return this.reservationsSubject.getValue();
-  }
-
-  public loadReservations() {
-    return this.reservationApiService.fetchReservations();
+  public loadReservationList(): void {
+    this.reservationApiService
+      .getReservationList()
+      .pipe(tap((reservationList) => this.reservationListSubject.next(reservationList)))
+      .subscribe();
   }
 }

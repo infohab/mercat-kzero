@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationStoreService } from '../../../core/reservation/reservation-store.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { SiteStoreService } from '../../../core/site/site-store.service';
 
@@ -10,7 +10,7 @@ import { SiteStoreService } from '../../../core/site/site-store.service';
   styleUrls: ['./reservation-summary.component.scss']
 })
 export class ReservationSummaryComponent implements OnInit {
-  private reservation = this.reservationService.reservation;
+  private reservation = this.reservationStoreService.reservation;
   public calendarLink = (): string => {
     const baseCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
     const title = `${this.reservation?.serviceType?.serviceName} at ${this.reservation?.place}`;
@@ -20,13 +20,13 @@ export class ReservationSummaryComponent implements OnInit {
     return `${baseCalendarUrl}&text=${title}&dates=${startDate}/${endDate}&details=${description}&sf=true&output=xml`;
   };
   constructor(
-    public reservationService: ReservationStoreService,
+    public reservationStoreService: ReservationStoreService,
     private router: Router,
     private siteStoreService: SiteStoreService
   ) {}
 
   public ngOnInit(): void {
-    this.reservationService.reservation$
+    this.reservationStoreService.reservation$
       .pipe(
         tap((reservation) => {
           if (!reservation) {

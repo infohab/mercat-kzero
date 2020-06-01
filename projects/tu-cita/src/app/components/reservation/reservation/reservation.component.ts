@@ -4,13 +4,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { ReservationConfirmComponent } from '../reservation-confirm/reservation-confirm.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ReservationStoreService } from '../../../core/reservation/reservation-store.service';
-import { Reservation } from '../../../core/reservation/reservation.interface';
 import { getReadableTime } from '../../../shared/utils';
 import * as moment from 'moment';
 import { SiteStoreService } from '../../../core/site/site-store.service';
 import { tap, catchError } from 'rxjs/operators';
 import { WorkingDay } from '../../../shared/interfaces/working-day.class';
 import { WorkingSegment } from '../../../shared/interfaces/working-segment.class';
+import { Reservation } from '../../../shared/interfaces/reservation.class';
 
 @Component({
   selector: 'app-reservation',
@@ -34,7 +34,7 @@ export class ReservationComponent implements OnInit {
 
   public reservationForm = this.formBuilder.group({
     place: [{ value: null, disabled: true }, Validators.required],
-    name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
+    clientName: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
     serviceType: [null, Validators.required],
     employee: [''],
     date: [null, Validators.required],
@@ -46,7 +46,7 @@ export class ReservationComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private reservationService: ReservationStoreService,
+    private reservationStoreService: ReservationStoreService,
     private siteStoreService: SiteStoreService
   ) {}
 
@@ -88,7 +88,7 @@ export class ReservationComponent implements OnInit {
   }
 
   public get name(): AbstractControl {
-    return this.reservationForm.get('name');
+    return this.reservationForm.get('clientName');
   }
 
   public get employee(): AbstractControl {
@@ -115,9 +115,9 @@ export class ReservationComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((saveReservation) => {
       if (saveReservation) {
-        this.reservationService.reservation = reservationData;
+        this.reservationStoreService.reservation = reservationData;
 
-        this.reservationService
+        this.reservationStoreService
           .bookReservation(reservationData)
           .pipe(tap(() => this.router.navigate(['/reservation-summary'])))
           .subscribe();

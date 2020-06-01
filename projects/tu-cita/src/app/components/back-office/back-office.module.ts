@@ -6,17 +6,19 @@ import { BusinessDetailsComponent } from './business-details/business-details.co
 import { BusinessEmployeesComponent } from './business-employees/business-employees.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { TimeAvailabilityComponent } from './time-availability/time-availability.component';
-import { BackOfficeRoutingModule } from './back-office.routing.module';
+import { BackOfficeRoutingModule } from './back-office-routing.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     BusinessDetailsComponent,
     BusinessEmployeesComponent,
     EmployeeDetailsComponent,
-    TimeAvailabilityComponent
+    TimeAvailabilityComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
