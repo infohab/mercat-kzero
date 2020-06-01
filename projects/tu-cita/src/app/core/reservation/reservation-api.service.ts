@@ -15,4 +15,8 @@ export class ReservationApiService {
     return of(null);
     // return this.httpClient.post<Reservation>(`${environment.apiUrl}/reservation`, null);
   }
+
+  public fetchReservations(): Observable<any> {
+    return this.httpClient.get<any>(`${environment.apiUrl}/reservations`);
+  }
 }
