@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { TimeAvailabilityApiService } from './time-availability-api.service';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReservationStoreService {
+export class TimeAvailabilityStoreService {
   private timeAvailabilitySubject = new BehaviorSubject([]);
   public timeAvailability$ = this.timeAvailabilitySubject.asObservable();
 
