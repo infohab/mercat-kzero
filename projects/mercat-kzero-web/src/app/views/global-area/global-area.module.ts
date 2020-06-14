@@ -17,6 +17,9 @@ import { HeaderLogoComponent } from './header-logo/header-logo.component';
 import { RouterModule } from '@angular/router';
 import { HeaderCartComponent } from './header-cart/header-cart.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { SerachByAreaComponent } from './serach-by-area/serach-by-area.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     HeaderLanguageSelectorComponent,
     HeaderLinksComponent,
     HeaderLogoComponent,
-    HeaderCartComponent
+    HeaderCartComponent,
+    SerachByAreaComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatListModule,
     MatMenuModule,
     RouterModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatInputModule,
+    FormsModule
   ],
   exports: [GlobalAreaComponent]
 })

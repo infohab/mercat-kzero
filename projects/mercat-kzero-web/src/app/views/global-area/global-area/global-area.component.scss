@@ -18,8 +18,21 @@
 
 .mat-toolbar {
   background: inherit;
-
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1;
+  background: rgba(221, 221, 221, 0.2);
+  .mat-toolbar-row {
+    height: 72px;
+    .logo {
+      margin-right: 100px;
+    }
+
+    .global-widgets {
+      display: flex;
+      .menu {
+        margin: 0 16px;
+      }
+    }
+  }
 }
