@@ -4,16 +4,6 @@
 
 .sidenav {
   width: 200px;
-
-  .sidenav-items {
-    span {
-      margin-left: 60px;
-    }
-
-    a:hover {
-      background-color: lightblue;
-    }
-  }
 }
 
 .mat-toolbar {
@@ -24,8 +14,16 @@
   background: rgba(221, 221, 221, 0.2);
   .mat-toolbar-row {
     height: 72px;
+
     .logo {
       margin-right: 100px;
+    }
+
+    .search,
+    .flex-spacer,
+    .cart,
+    .language {
+      display: none;
     }
 
     .global-widgets {
