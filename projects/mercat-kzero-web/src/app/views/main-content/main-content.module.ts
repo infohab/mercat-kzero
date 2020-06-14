@@ -8,6 +8,7 @@ import { DescriptionModule } from '../description/description.module';
 import { OrchardModule } from '../orchard/orchard.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { YourRoleModule } from '../your-role/your-role.module';
 
 @NgModule({
   declarations: [MainContentComponent],
@@ -19,7 +20,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DescriptionModule,
     OrchardModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    YourRoleModule
   ]
 })
 export class MainContentModule {}
