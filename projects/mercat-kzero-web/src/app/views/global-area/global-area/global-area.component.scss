@@ -14,23 +14,28 @@
   background: rgba(221, 221, 221, 0.2);
   .mat-toolbar-row {
     height: 72px;
+    display: flex;
+    justify-content: space-between;
 
     .logo {
       margin-right: 100px;
     }
 
+    .global-widgets {
+      display: flex;
+
+      .menu {
+        margin: 0 16px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 601px) {
     .search,
     .flex-spacer,
     .cart,
     .language {
       display: none;
-    }
-
-    .global-widgets {
-      display: flex;
-      .menu {
-        margin: 0 16px;
-      }
     }
   }
 }
