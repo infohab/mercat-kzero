@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { YourRoleComponent } from './your-role.component';
+import { RoleCardsComponent } from './role-cards.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [YourRoleComponent],
+  declarations: [RoleCardsComponent],
   imports: [CommonModule, MatCardModule, MatButtonModule],
-  exports: [YourRoleComponent]
+  exports: [RoleCardsComponent]
 })
-export class YourRoleModule {}
+export class RoleCardsModule {}
